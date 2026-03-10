@@ -79,7 +79,10 @@ export default function FundingCTA() {
                   className="text-sm text-[#666] leading-relaxed flex-1 mb-6"
                   dangerouslySetInnerHTML={{ __html: t.desc }}
                 />
-                <button
+                <a
+                  href="https://buymeacoffee.com/chris.yoon"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`w-full py-2.5 rounded-md text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${
                     t.highlight
                       ? "bg-[#007AFF] text-white hover:bg-[#0066DD]"
@@ -88,7 +91,7 @@ export default function FundingCTA() {
                 >
                   {t.price === "Custom" ? "Get in Touch" : "Back Now"}
                   <ArrowRight size={14} />
-                </button>
+                </a>
               </div>
             );
           })}

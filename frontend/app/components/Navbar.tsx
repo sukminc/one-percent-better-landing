@@ -44,7 +44,9 @@ export default function Navbar() {
             Roadmap
           </a>
           <a
-            href="#invest"
+            href="https://buymeacoffee.com/chris.yoon"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm bg-[#007AFF] text-white px-4 py-2 rounded-md hover:bg-[#0066DD] transition-colors font-medium"
           >
             <TrendingUp size={14} />

@@ -56,7 +56,9 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-wrap items-center gap-4 mb-20">
           <a
-            href="#invest"
+            href="https://buymeacoffee.com/chris.yoon"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 bg-[#007AFF] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#0066DD] transition-colors"
           >
             Back the Project
