@@ -7,69 +7,54 @@ export interface Project {
   description: string;
   status: ProjectStatus;
   tags: string[];
-  url?: string;        // CTA link (if live)
-  featured?: boolean;  // takes wider card
-  seed: number;        // baseline interest count
+  url?: string;
+  featured?: boolean;
+  seed: number;
 }
 
 export const projects: Project[] = [
-  // ── Active Build ───────────────────────────────────────────────────────────
   {
     slug: "onepercentbetter",
-    title: "onepercentbetter.poker",
-    tagline: "GTO Defends. We Exploit.",
+    title: "onepercentbetter",
+    tagline: "GTO Deviation & Exploit Analytics Platform",
     description:
-      "Full-stack poker analytics platform. Parses GGPoker hand histories, quantifies opponent GTO deviations, and surfaces bb/100 exploit edges by position. The backend analytical engine is live — UI is next.",
+      "End-to-end system ingesting GGPoker hand histories into a FastAPI analytics engine (Pandas/NumPy) that quantifies GTO deviations, scores player tendencies, and surfaces positional exploit signals. Architected for LLM agent integration: deviation signals feed an AI recommendation engine generating exploit strategies — the core agentic decision loop driving real edge.",
     status: "building",
-    tags: ["Poker", "Analytics", "FastAPI", "Next.js"],
-    url: "https://buymeacoffee.com/chris.yoon",
+    tags: ["Next.js", "FastAPI", "SQLAlchemy", "Pandas", "NumPy", "Vercel"],
+    url: "https://onepercentbetter.poker",
     featured: true,
     seed: 47,
   },
-
-  // ── Shipped ────────────────────────────────────────────────────────────────
-  {
-    slug: "actionkeeper",
-    title: "ActionKeeper",
-    tagline: "DocuSign for poker staking.",
-    description:
-      "Mobile-first staking agreement app. Players and backers draft terms, negotiate turn-by-turn, and lock in a tamper-evident PDF receipt — cryptographically hashed, QR-verifiable. Never holds funds. Revenue on contract generation via Stripe.",
-    status: "building",
-    tags: ["Poker", "Fintech", "FastAPI", "Next.js", "Stripe"],
-    url: "https://buymeacoffee.com/chris.yoon",
-    seed: 31,
-  },
-  {
-    slug: "stackvision",
-    title: "StackVision",
-    tagline: "Point your camera. Know your stack.",
-    description:
-      "Augmented reality poker chip counter. Overlay your phone camera on any chip stack and get an instant count — no manual math, no mistakes under pressure.",
-    status: "idea",
-    tags: ["Poker", "AR", "Mobile", "Computer Vision"],
-    seed: 24,
-  },
-
-  // ── Data Engineering ───────────────────────────────────────────────────────
   {
     slug: "bluejays-moneyball",
-    title: "Blue Jays Moneyball",
-    tagline: "Production ETL meets sabermetrics. If the data's bad, the pipeline dies.",
+    title: "Blue Jays Moneyball ETL",
+    tagline: "Production-Grade ELT & Self-Validating Pipeline",
     description:
-      "End-to-end Data Lakehouse on Apache Airflow + PostgreSQL. Ingests MLB salary vs. performance data, runs a fail-fast DQ gate that hard-blocks bad payloads, and a regression suite that verifies the guardrails themselves — the same architecture pattern I used at TheScore.",
+      "Airflow + PostgreSQL pipeline integrating Spotrac payroll vs. MLB stats; DQ gates block all downstream transformation until checks pass — no silent failures. Regression DAG fires known-bad datasets against DQ gates, asserting failure — guardrails are CI/CD citizens that break the build if the safety net breaks.",
     status: "live",
-    tags: ["Data Engineering", "Airflow", "PostgreSQL", "ETL", "Python"],
+    tags: ["Python", "Apache Airflow", "PostgreSQL", "Docker", "GitHub Actions"],
     url: "https://github.com/sukminc/bluejays-financial-mlops",
     seed: 18,
   },
   {
+    slug: "actionkeeper",
+    title: "ActionKeeper",
+    tagline: "Full-Stack Staking Agreement Platform",
+    description:
+      "FastAPI + PostgreSQL with Clean Architecture (Service/Repository layers); tamper-evident SHA-256 receipt hashing and dual-confirmation negotiation engine with full persistent audit trail. Turn-based Accept/Counter/Decline workflow with visual term diffs, side-by-side counter-offer comparison, and real-time payout previews.",
+    status: "building",
+    tags: ["Python (FastAPI)", "TypeScript (Next.js)", "PostgreSQL", "Docker", "Stripe", "Alembic"],
+    url: "https://github.com/sukminc/action-keeper",
+    seed: 31,
+  },
+  {
     slug: "twelvelabs-validator",
     title: "TwelveLabs API Validator",
-    tagline: "JSON-driven. CI-ready. Reliability-first SDK framework.",
+    tagline: "Multimodal Search Validation Framework",
     description:
-      "Modular Python framework for validating TwelveLabs' multimodal video search SDK. Decouples test logic from data via JSON configs, ships a custom GUI batch runner, and covers i18n edge cases (Korean, Japanese, Arabic). Built to the same standard as a production observability tool.",
+      "JSON-driven validation suite for TwelveLabs multimodal video search API — decouples test logic from test data; covers linguistic edge cases (plurals, i18n: Korean/Japanese/Arabic), fuzzy matching, and injection attempts. Built to the same standard as a production observability tool.",
     status: "live",
-    tags: ["Python", "pytest", "AI APIs", "SDK Engineering", "Automation"],
+    tags: ["Python", "TwelveLabs SDK", "Pytest", "Tkinter"],
     url: "https://github.com/sukminc/TwelveLabs",
     seed: 12,
   },

@@ -8,17 +8,23 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto w-full">
 
         {/* Status pill */}
-        <div className="inline-flex items-center gap-2 border border-[#2a2a2a] rounded-full px-3 py-1 mb-10">
+        <div className="inline-flex items-center gap-2 border border-emerald-500/30 bg-emerald-500/5 rounded-full px-3 py-1 mb-10">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs text-[#666] font-mono tracking-widest uppercase">
-            Building in public
+          <span className="text-xs text-emerald-400 font-mono tracking-widest uppercase">
+            Open to Work — Data Engineering / AI Engineering
           </span>
         </div>
 
-        {/* Name */}
-        <p className="text-sm font-mono text-[#555] mb-3 tracking-widest uppercase">
-          Sukmin Yoon
-        </p>
+        {/* Name — links to LinkedIn */}
+        <a
+          href="https://linkedin.com/in/sukminyoon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-sm font-mono text-[#555] hover:text-[#007AFF] transition-colors mb-3 tracking-widest uppercase"
+        >
+          Chris S. Yoon
+          <span className="text-[10px]">↗</span>
+        </a>
 
         {/* Headline */}
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
@@ -28,7 +34,7 @@ export default function Hero() {
 
         {/* Sub */}
         <p className="text-lg text-[#555] max-w-xl leading-relaxed mb-10">
-          Data engineer &amp; AI builder. I&apos;ve shipped ETL pipelines at
+          Senior Data Engineer &amp; AI builder. I&apos;ve shipped ETL pipelines at
           scale for sports betting. Now I build AI-powered products in public —
           and get 1% better at both with every commit.
         </p>
@@ -59,7 +65,7 @@ export default function Hero() {
         <div className="flex items-center gap-2 text-[#333]">
           <ArrowDown size={14} className="animate-bounce" />
           <span className="text-xs font-mono tracking-widest uppercase">
-            See the projects
+            See the work
           </span>
         </div>
       </div>

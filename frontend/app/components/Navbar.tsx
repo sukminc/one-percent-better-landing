@@ -24,15 +24,29 @@ export default function Navbar() {
           <div className="w-6 h-6 rounded-full border border-[#007AFF] flex items-center justify-center">
             <span className="text-[#007AFF] font-bold text-[10px] font-mono">SY</span>
           </div>
-          <span className="text-sm text-[#555] font-mono">sukmin.build</span>
+          <span className="text-sm text-[#555] font-mono">onepercentbetter.poker</span>
         </div>
 
-        <a
-          href="#projects"
-          className="text-xs font-mono text-[#555] hover:text-white transition-colors tracking-widest uppercase"
-        >
-          Projects
-        </a>
+        <div className="flex items-center gap-6">
+          <a
+            href="#about"
+            className="text-xs font-mono text-[#555] hover:text-white transition-colors tracking-widest uppercase"
+          >
+            About
+          </a>
+          <a
+            href="#skills"
+            className="text-xs font-mono text-[#555] hover:text-white transition-colors tracking-widest uppercase"
+          >
+            Skills
+          </a>
+          <a
+            href="#projects"
+            className="text-xs font-mono text-[#555] hover:text-white transition-colors tracking-widest uppercase"
+          >
+            Projects
+          </a>
+        </div>
       </div>
     </nav>
   );
