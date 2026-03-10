@@ -44,6 +44,14 @@ export default function Navbar() {
             Roadmap
           </a>
           <a
+            href="https://linkedin.com/in/sukminyoon"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-[#999] hover:text-white transition-colors"
+          >
+            Builder
+          </a>
+          <a
             href="https://buymeacoffee.com/chris.yoon"
             target="_blank"
             rel="noopener noreferrer"
