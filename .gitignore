@@ -26,3 +26,5 @@ yarn-error.log*
 .pnpm-debug.log*
 .vercel
 .env*.local
+resume/
+frontend/public/resume/
