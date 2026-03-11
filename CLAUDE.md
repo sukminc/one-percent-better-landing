@@ -6,37 +6,52 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **onepercentbetter.poker** — "GTO Defends. We Exploit."
 
-A GTO exploit quantification platform that identifies opponent deviations from GTO equilibrium and translates them into actionable, data-driven poker strategy. Currently a marketing/landing site promoting the product; the backend analytical engine is already functional and will be surfaced in the UI.
+This repo (`opblandingpage`) is the **landing page / portfolio website only**. The backend analytical engine lives in a separate repository.
 
-## Core Product Concepts
+The site serves two purposes:
+1. **Product branding** — marketing the onepercentbetter GTO exploit platform
+2. **Personal portfolio** — job hunting for Senior Data Engineer / AI Engineering roles (Chris S. Yoon)
 
-Three primary feature areas (the "cards") being built toward:
-- **Deviation Card** — Quantifies the Δ between parsed GGPoker hand histories and GTO equilibrium
-- **Moneyball Efficiency Card** — Identifies high fold-equity / low-risk spots automatically
-- **Action Keeper Logic** — Proposes optimal bet sizing and bankroll risk management based on current equity
+## Site Structure
+
+**Landing page (`/`)** — Brand-first, project-focused
+- Hero: "GTO Defends. We Exploit." headline, product description, name byline links to LinkedIn
+- Projects: 4 featured projects with 3D flip-card funding mechanic (hover to reveal FOLD/Check/Call/10x Raise/All-In tiers)
+- No personal experience on landing page
+
+**About page (`/about`)** — Full resume
+- Professional summary, full 7-company experience timeline with bullet points
+- 6 technical skill categories (Data Engineering, Languages, Cloud, AI/Agentic, Observability, Frontend)
+- Education & certifications
+- LinkedIn CTA (no resume PDF download)
+
+## Owner
+
+**Chris S. Yoon** — Senior Data Engineer & AI Builder, Toronto ON
+- LinkedIn: `linkedin.com/in/sukminyoon`
+- GitHub: `github.com/sukminc`
+- Email: `chris.yoon@outlook.com`
+- Open to Work: Data Engineering / AI Engineering roles
+
+## Featured Projects (in order)
+
+1. **onepercentbetter** — GTO Deviation & Exploit Analytics Platform · `building` · featured card
+2. **Blue Jays Moneyball ETL** — Production-Grade ELT & Self-Validating Pipeline · `live`
+3. **ActionKeeper** — Full-Stack Staking Agreement Platform · `building`
+4. **TwelveLabs API Validator** — Multimodal Search Validation Framework · `live`
+
+Project data lives in `frontend/app/data/projects.ts`.
 
 ## Design System
 
-- **Layout:** Bento grid — metrics surfaced as independent interactive cards
-- **Colors:** Deep Black `#000000`, Electric Blue `#007AFF`, Profit Green accents
-- **Logo:** Minimalist casino chip engraved with "1%"
-- **Animation:** Framer Motion for card interactions (installed but not yet wired up)
-- **Funding CTAs:** All link to `https://buymeacoffee.com/chris.yoon`
+- **Colors:** Deep Black `#000000`, Electric Blue `#007AFF`, Emerald green for "Open to Work" accents
+- **Layout:** Bento grid — projects as independent interactive flip cards
+- **Animation:** Framer Motion — 3D card flips (hover front → back shows funding tiers), scroll-in fade-ups
+- **Funding CTAs:** Flip card backs link to `https://buymeacoffee.com/chris.yoon`
+- **Typography:** Monospace font for labels/tags, bold tracking-tight for headlines
 
-## Commands
+## Frontend Commands
 
-### Backend (FastAPI + SQLite)
-```bash
-cd backend
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-uvicorn app.main:app --reload        # dev server at localhost:8000, docs at /docs
-PYTHONPATH=. pytest -v               # all tests
-PYTHONPATH=. pytest tests/test_api.py::test_health -v  # single test
-```
-
-### Frontend (Next.js)
 ```bash
 cd frontend
 npm install
@@ -46,39 +61,32 @@ npm run build  # production build
 npm run lint   # ESLint
 ```
 
-## Architecture
+## Frontend Architecture
 
-Two independent services. Frontend is a static marketing page; backend is a fully functional analytical API.
+```
+frontend/app/
+├── page.tsx              # Landing page: Navbar + Hero + Projects + Footer
+├── about/page.tsx        # Resume page: full experience, skills, education
+├── components/
+│   ├── Navbar.tsx        # Fixed nav — logo (1%) | Projects | About
+│   ├── Hero.tsx          # Brand hero — "GTO Defends. We Exploit.", name → LinkedIn
+│   ├── About.tsx         # Full experience timeline + skills + education (landing About section — currently unused on landing, lives at /about)
+│   ├── Skills.tsx        # 6 skill category cards with scroll-in animations
+│   ├── Projects.tsx      # Flip-card grid with filter pills and funding tiers
+│   └── Footer.tsx        # Minimal footer with social links
+├── data/
+│   └── projects.ts       # Project definitions (slug, title, tagline, description, status, tags, url)
+└── globals.css           # Tailwind v4 base styles
+```
 
-**Backend (`backend/app/`)**
-- `main.py` — FastAPI app, all routes, CORS for `localhost:3000` and `onepercentbetter.poker`
-- `models.py` — SQLAlchemy ORM: `Tournament` (1-to-many) → `Hand`
-- `db.py` — SQLite engine, session factory, FastAPI dependency injection
-- `parser.py` — Regex-based GGPoker hand history parser (filename metadata, hand splitting, position/action/result extraction). Actions stored as `"folds"`, `"calls"`, `"raises"`, `"checks"`, `"bets"` (with the 's').
-- `analytics.py` — Pandas aggregation: positional stats, P&L curves, exploit signals
+## Deployment
 
-**Backend API endpoints:**
-| Method | Path | Purpose |
-|--------|------|---------|
-| GET | `/health` | Health check |
-| POST | `/ingest` | Upload GGPoker `.txt` file |
-| GET | `/tournaments` | List tournaments |
-| PATCH | `/tournaments/{id}` | Update result/finish |
-| GET | `/analytics/signals` | Top-level exploit metrics (P&L, ROI, VPIP, best/worst positions) |
-| GET | `/analytics/positional` | Win-rate stats by position |
-| GET | `/analytics/pnl` | Cumulative P&L over time |
+- **Frontend:** Vercel — connected to GitHub repo (`opblandingpage`), auto-deploys on push to `main`
+- **Domain:** `onepercentbetter.poker`
+- After any repo rename, reconnect Vercel via Settings → Git → Disconnect → reconnect
 
-**Frontend (`frontend/app/`)**
-- `page.tsx` — Home page (assembles all section components)
-- `components/` — Navbar, Hero, About, Roadmap, FundingCTA, Footer
-- Styling: Tailwind CSS v4, dark theme
-- Path alias: `@/*` → project root
+## Notes
 
-**Deployment:** Frontend on Vercel (`vercel.json`), backend on any ASGI host.
-
-## Testing
-
-50 tests across 3 files (`PYTHONPATH=. pytest -v` from `backend/`):
-- `test_parser.py` — parser unit tests (positions, actions, filename parsing, multi-hand splits)
-- `test_api.py` — API integration tests (resets `test.db` on each run for clean empty-state assertions)
-- `test_analytics.py` — analytics unit tests with in-memory SQLite fixtures
+- Resume PDF (`resume/` and `frontend/public/resume/`) is gitignored — never commit
+- Backend poker analytics engine is in a **separate repo** — not part of this codebase
+- Navbar logo updated to `1%` mark
