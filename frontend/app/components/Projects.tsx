@@ -23,25 +23,23 @@ const FILTERS: { key: FilterKey; match: string[] }[] = [
 ];
 
 const FUNDING_TIERS = [
-  { label: "Fold",      sub: "Not interested",         amount: null,  style: "text-[#4B4C58] border-[#232329] hover:border-[#36363F] hover:text-[#8A8B97]" },
-  { label: "Check",     sub: "$10 — I'd use this",     amount: 10,    style: "text-[#8A8B97] border-[#232329] hover:border-[#36363F] hover:text-[#F7F8F8]" },
-  { label: "Call",      sub: "$20 — Build this",       amount: 20,    style: "text-[#F7F8F8] border-[#5E5CE6]/30 hover:border-[#5E5CE6] hover:bg-[#5E5CE6]/10" },
-  { label: "10x Raise", sub: "$100+ — Need this ASAP", amount: 100,   style: "text-[#5E5CE6] border-[#5E5CE6]/50 hover:border-[#5E5CE6] hover:bg-[#5E5CE6]/15 font-medium" },
-  { label: "All-In",    sub: "$1,000 — Sponsor",       amount: 1000,  style: "text-amber-400 border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 font-medium" },
+  { label: "Check",     sub: "$10 — I'd use this",     amount: 10,   style: "text-[#8A8B97] border-[#232329] hover:border-[#36363F] hover:text-[#F7F8F8]" },
+  { label: "Call",      sub: "$20 — Build this",       amount: 20,   style: "text-[#F7F8F8] border-[#5E5CE6]/30 hover:border-[#5E5CE6] hover:bg-[#5E5CE6]/10" },
+  { label: "10x Raise", sub: "$100+ — Need this ASAP", amount: 100,  style: "text-[#5E5CE6] border-[#5E5CE6]/50 hover:border-[#5E5CE6] hover:bg-[#5E5CE6]/15 font-medium" },
+  { label: "All-In",    sub: "$1,000 — Sponsor",       amount: 1000, style: "text-amber-400 border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 font-medium" },
 ];
 
 function ProjectCard({ project }: { project: Project }) {
   const [flipped, setFlipped] = useState(false);
   const cfg = statusConfig[project.status];
 
-  function handleFund(amount: number | null) {
-    if (amount === null) { setFlipped(false); return; }
+  function handleFund(amount: number) {
     window.open(`${BMAC}?amount=${amount}`, "_blank", "noopener,noreferrer");
   }
 
   return (
     <div
-      className={`relative ${project.featured ? "md:col-span-2" : ""}`}
+      className="relative"
       style={{ perspective: "1200px" }}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
@@ -54,9 +52,7 @@ function ProjectCard({ project }: { project: Project }) {
       >
         {/* ── FRONT ── */}
         <div
-          className={`[grid-area:1/1] flex flex-col rounded-2xl p-6 bg-[#161618] border transition-colors ${
-            project.featured ? "border-[#5E5CE6]/25 hover:border-[#5E5CE6]/40" : "border-[#232329] hover:border-[#36363F]"
-          }`}
+          className="[grid-area:1/1] flex flex-col rounded-2xl p-6 bg-[#161618] border border-[#232329] hover:border-[#36363F] transition-colors"
           style={{ backfaceVisibility: "hidden" }}
         >
           {/* Status row */}
@@ -97,6 +93,28 @@ function ProjectCard({ project }: { project: Project }) {
             ))}
           </div>
 
+          {/* MVP Progress */}
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] text-[#4B4C58] tracking-wide">MVP Progress</span>
+              <span className={`text-[10px] font-medium ${cfg.color}`}>
+                {project.mvpProgress === 100 ? "Live ✓" : `${project.mvpProgress}%`}
+              </span>
+            </div>
+            <div className="h-1 w-full rounded-full bg-[#232329] overflow-hidden">
+              <div
+                className={`h-full rounded-full transition-all duration-700 ${
+                  project.status === "live"
+                    ? "bg-emerald-400"
+                    : project.status === "building"
+                    ? "bg-[#5E5CE6]"
+                    : "bg-[#4B4C58]"
+                }`}
+                style={{ width: `${project.mvpProgress}%` }}
+              />
+            </div>
+          </div>
+
           <p className="text-[10px] text-[#4B4C58] text-center tracking-wide">
             hover to fund →
           </p>
@@ -104,9 +122,7 @@ function ProjectCard({ project }: { project: Project }) {
 
         {/* ── BACK ── */}
         <div
-          className={`[grid-area:1/1] flex flex-col justify-center rounded-2xl p-6 bg-[#161618] border ${
-            project.featured ? "border-[#5E5CE6]/25" : "border-[#232329]"
-          }`}
+          className="[grid-area:1/1] flex flex-col justify-center rounded-2xl p-6 bg-[#161618] border border-[#232329]"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
           <p className="text-sm text-[#8A8B97] text-center mb-1">{project.title}</p>

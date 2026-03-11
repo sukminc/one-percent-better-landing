@@ -10,6 +10,7 @@ export interface Project {
   url?: string;
   featured?: boolean;
   seed: number;
+  mvpProgress: number; // 0–100
 }
 
 export const projects: Project[] = [
@@ -24,6 +25,7 @@ export const projects: Project[] = [
     url: "https://onepercentbetter.poker",
     featured: true,
     seed: 47,
+    mvpProgress: 55,
   },
   {
     slug: "bluejays-moneyball",
@@ -35,6 +37,7 @@ export const projects: Project[] = [
     tags: ["Python", "Apache Airflow", "PostgreSQL", "Docker", "GitHub Actions"],
     url: "https://github.com/sukminc/bluejays-financial-mlops",
     seed: 18,
+    mvpProgress: 100,
   },
   {
     slug: "actionkeeper",
@@ -46,6 +49,7 @@ export const projects: Project[] = [
     tags: ["Python (FastAPI)", "TypeScript (Next.js)", "PostgreSQL", "Docker", "Stripe", "Alembic"],
     url: "https://github.com/sukminc/action-keeper",
     seed: 31,
+    mvpProgress: 40,
   },
   {
     slug: "onepercent-focus",
@@ -57,6 +61,7 @@ export const projects: Project[] = [
     tags: ["Flutter", "Dart", "Riverpod", "Supabase", "iOS", "Android"],
     url: "https://github.com/sukminc/OneBetterFocus",
     seed: 63,
+    mvpProgress: 70,
   },
   {
     slug: "twelvelabs-validator",
@@ -68,5 +73,6 @@ export const projects: Project[] = [
     tags: ["Python", "TwelveLabs SDK", "Pytest", "Tkinter"],
     url: "https://github.com/sukminc/TwelveLabs",
     seed: 12,
+    mvpProgress: 100,
   },
 ];
