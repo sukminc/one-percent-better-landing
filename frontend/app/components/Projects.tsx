@@ -10,13 +10,10 @@ import { projects, type Project, type ProjectStatus } from "../data/projects";
 const BMAC      = "https://buymeacoffee.com/chris.yoon";
 const GH_OWNER  = "sukminc";
 
-const REPO_MAP: Record<string, string> = {
-  "onepercentbetter":     "one-percent-better",
-  "bluejays-moneyball":   "bluejays-financial-mlops",
-  "actionkeeper":         "action-keeper",
-  "onepercent-focus":     "OneBetterFocus",
-  "twelvelabs-validator": "TwelveLabs",
-};
+// Derived from projects.ts — add repoName there to surface GitHub stats here
+const REPO_MAP: Record<string, string> = Object.fromEntries(
+  projects.filter((p) => p.repoName).map((p) => [p.slug, p.repoName!])
+);
 
 // Simple Icons slug + display label + brand hex
 const TECH_ICONS: Record<string, Array<{ slug: string; label: string; hex: string }>> = {
