@@ -1,66 +1,65 @@
-# CLAUDE.md
+# CLAUDE.md — onepercentbetter (Landing Page Hub)
 
 ## What this is
-Landing page + portfolio for **onepercentbetter.poker**
+Brand hub + portfolio for **onepercentbetter.poker**
 Tagline: "Marginal gains. Exponential results."
-Repo: `opblandingpage`. Backend lives in a separate repo.
+Repo: `opblandingpage` (GitHub) → `one-percent-better` (local)
+
+**Rule: If a project is not listed on onepercentbetter.poker, it is not a brand asset.**
 
 ## Owner
 Chris S. Yoon · Senior Data Engineer & AI Builder · Toronto ON
 `linkedin.com/in/sukminyoon` · `github.com/sukminc` · Open to Work
 
 ## Pages
-- `/` — Brand hero + 4 project flip-cards
+- `/` — Brand hero + project cards (commit feed, progress bar, tech stack icons)
 - `/about` — Full resume (experience, skills, education). LinkedIn CTA only, no PDF download.
 
 ## Projects (`frontend/app/data/projects.ts`)
 1. **onepercentbetter** — Performance Analytics & Edge Intelligence · `building` · featured
 2. **Blue Jays Moneyball ETL** — Self-Validating ELT Pipeline · `live`
 3. **ActionKeeper** — Agreement & Negotiation Platform · `building`
-4. **TwelveLabs API Validator** — Multimodal Search Validation · `live`
+4. **1% Better Focus** — Minimalist Deep-Work Timer · `building`
+5. **TwelveLabs API Validator** — Multimodal Search Validation · `live`
+
+Adding a project to the site = it becomes part of the brand. Removing = it's off the record.
 
 ## Stack
-Next.js · Tailwind CSS v4 · Framer Motion · TypeScript
+Next.js · Tailwind CSS v4 · TypeScript
 Deploy: Vercel → `onepercentbetter.poker`
 
 ## Commands
 ```bash
 cd frontend && npm run dev    # localhost:3000
-cd frontend && npm run build
+npx next build                # build check
+git push origin main          # always push directly to main (no PRs — squash merge causes conflicts)
 ```
+
+---
+
+## Core Value (Brand DNA)
+
+**Surface story:** Data-driven performance improvement. Marginal gains compounded.
+
+**Encoded truth:** 피쉬 잡는 공략법 — systematic edge exploitation against weak players.
+- Did I exploit fish correctly this session?
+- How do I quantify my edge against weak players?
+- How do I improve that edge over time?
+
+This is the north star for the analytics platform (`onepercentbetter` project).
+The public never sees poker. The product tells the whole story without saying the word.
+Like Renaissance Technologies — the surface story and the real story differ.
+
+**Revenue plan:** Easy consumer apps (focus tools, simple utilities) alongside the core analytics platform. Ship fast, capture income, fund the deep work.
 
 ---
 
 ## Brand Identity
 
-### Core Philosophy
-**"1% better"** — the marginal gains doctrine. 1% improvement compounded daily = 37× better in a year.
-
-### Hidden brand DNA
-The surface story is data-driven performance improvement.
-The encoded truth is **"피쉬 잡는 공략법"** — systematic edge exploitation.
-Every system has inefficiencies. Every market has fish. We build tools that find and compound those edges.
-This is intentionally not surfaced in copy. Like Renaissance Technologies — the surface story and the real story differ.
-
-### Public taglines (use these in copy)
+### Public taglines
 - Hero: "Marginal gains. Exponential results."
 - Sub-tagline: "FIND THE EDGE"
 - Description: "Every system has inefficiencies. Every market has edges. We build data tools that find them — and compound the advantage 1% at a time."
-
-### Logo
-- **Primary mark**: Circle badge with "1%" — `/public/logo.svg`
-- **Lockup**: Badge + "onepercentbetter" wordmark — `/public/logo-lockup.svg`
-- **Exports**: `logo-48.png` (navbar), `logo-256.png` (general), `logo-512.png` (OG/print)
-- **Favicon**: `favicon-32.png`, `favicon-16.png`
-
-### Colors
-| Token       | Hex       | Use                          |
-|-------------|-----------|------------------------------|
-| `bg`        | `#0D0D11` | Site background              |
-| `purple`    | `#5E5CE6` | Primary accent (Hero, links) |
-| `violet`    | `#8B5CF6` | Logo ring, secondary accents |
-| `text-mute` | `#8A8B97` | Body / secondary text        |
-| `border`    | `#232329` | Dividers, card borders       |
 
 ### Voice
 - Precise, confident, minimal
@@ -68,9 +67,23 @@ This is intentionally not surfaced in copy. Like Renaissance Technologies — th
 - Technical credibility without jargon overload
 - Never mention poker explicitly in public-facing copy
 
+### Colors
+| Token       | Hex       | Use                          |
+|-------------|-----------|------------------------------|
+| `bg`        | `#0D0D11` | Site background              |
+| `purple`    | `#5E5CE6` | Primary accent               |
+| `violet`    | `#8B5CF6` | Logo ring, secondary accents |
+| `text-mute` | `#8A8B97` | Body / secondary text        |
+| `border`    | `#232329` | Dividers, card borders       |
+
+### Logo
+- `/public/logo.svg` — circle badge "1%"
+- `/public/logo-lockup.svg` — badge + wordmark
+- `logo-48.png` (navbar), `logo-256.png` (general), `logo-512.png` (OG)
+
 ---
 
 ## Notes
 - Resume PDF is gitignored — never commit
-- After repo rename, reconnect Vercel: Settings → Git → Disconnect → reconnect
-- To push: `git push origin main` from repo root (SSH configured)
+- Worktree branches: `git push origin HEAD:main` from worktree
+- Vercel auto-deploys from `main`
