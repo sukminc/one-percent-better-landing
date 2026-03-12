@@ -2,37 +2,39 @@
 
 import { ArrowUpRight } from "lucide-react";
 
-const BMAC = "https://buymeacoffee.com/chris.yoon";
-
 const TIERS = [
   {
     label: "Open",
     amount: 30,
     desc: "Skin in the game. You see the direction.",
     hero: false,
+    url: "https://buy.stripe.com/fZu8wQbT81DO8dIf6I1wY00",
   },
   {
     label: "3-Bet",
     amount: 150,
     desc: "Committed backer. Early access when we ship.",
     hero: false,
+    url: "https://buy.stripe.com/5kQbJ20aqeqA51w4s41wY01",
   },
   {
     label: "Over Bet",
     amount: 500,
     desc: "Most players fold here. You don't.",
     hero: false,
+    url: "https://buy.stripe.com/8x2cN67CSdmw2To6Ac1wY02",
   },
   {
     label: "All-In",
     amount: 2000,
     desc: null,
     hero: true,
+    url: "https://buy.stripe.com/28EfZi3mCfuE1Pk7Eg1wY03",
   },
 ];
 
-function handleFund(amount: number) {
-  window.open(`${BMAC}?amount=${amount}`, "_blank", "noopener,noreferrer");
+function handleFund(url: string) {
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 export default function FundingCTA() {
@@ -54,7 +56,7 @@ export default function FundingCTA() {
             {TIERS.filter((t) => !t.hero).map((tier) => (
               <button
                 key={tier.label}
-                onClick={() => handleFund(tier.amount)}
+                onClick={() => handleFund(tier.url)}
                 className="flex flex-col rounded-2xl p-5 bg-[#161618] border border-[#232329] hover:border-[#36363F] transition-all text-left group cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-3">
@@ -70,7 +72,7 @@ export default function FundingCTA() {
 
           {/* Hero tier — All-In */}
           <button
-            onClick={() => handleFund(2000)}
+            onClick={() => handleFund("https://buy.stripe.com/28EfZi3mCfuE1Pk7Eg1wY03")}
             className="w-full rounded-2xl border border-amber-500/40 bg-amber-500/5 hover:bg-amber-500/8 hover:border-amber-400/60 transition-all cursor-pointer px-6 py-5 text-left group"
           >
             <div className="flex items-start justify-between gap-4">
