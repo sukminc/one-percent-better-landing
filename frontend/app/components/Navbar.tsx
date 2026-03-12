@@ -19,17 +19,25 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-6 h-6 rounded-md bg-[#5E5CE6]/20 border border-[#5E5CE6]/30 flex items-center justify-center">
-            <span className="text-[#5E5CE6] font-bold text-[9px]">1%</span>
-          </div>
-          <span className="text-sm text-[#8A8B97]">onepercentbetter</span>
-        </div>
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <img
+            src="/logo.svg"
+            alt="onepercentbetter"
+            className="h-8 w-8 transition-opacity group-hover:opacity-80"
+          />
+          <span className="text-sm font-semibold text-[#F7F8F8] tracking-tight leading-none hidden sm:block">
+            onepercentbetter
+          </span>
+        </Link>
 
         <div className="flex items-center gap-6">
           <a href="#projects" className="text-sm text-[#8A8B97] hover:text-[#F7F8F8] transition-colors">
             Projects
           </a>
+          <Link href="/activity" className="text-sm text-[#8A8B97] hover:text-[#F7F8F8] transition-colors flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            Activity
+          </Link>
           <Link href="/about" className="text-sm text-[#8A8B97] hover:text-[#F7F8F8] transition-colors">
             About
           </Link>
