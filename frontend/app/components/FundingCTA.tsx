@@ -4,28 +4,28 @@ import { ArrowUpRight } from "lucide-react";
 
 const TIERS = [
   {
-    label: "Open",
+    label: "Spark",
     amount: 30,
     desc: "Skin in the game. You see the direction.",
     hero: false,
     url: "https://buy.stripe.com/fZu8wQbT81DO8dIf6I1wY00",
   },
   {
-    label: "3-Bet",
+    label: "Build",
     amount: 150,
     desc: "Committed backer. Early access when we ship.",
     hero: false,
     url: "https://buy.stripe.com/5kQbJ20aqeqA51w4s41wY01",
   },
   {
-    label: "Over Bet",
+    label: "Accelerate",
     amount: 500,
-    desc: "Most players fold here. You don't.",
+    desc: "You believe before others do.",
     hero: false,
     url: "https://buy.stripe.com/8x2cN67CSdmw2To6Ac1wY02",
   },
   {
-    label: "All-In",
+    label: "Partner",
     amount: 2000,
     desc: null,
     hero: true,
@@ -78,7 +78,7 @@ export default function FundingCTA() {
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-base font-semibold text-amber-400">All-In · $2,000</span>
+                  <span className="text-base font-semibold text-amber-400">Partner · $2,000</span>
                   <span className="text-[10px] text-amber-500/70 border border-amber-500/30 rounded-full px-2 py-0.5 tracking-wide">
                     Advisor + Shareholder
                   </span>
