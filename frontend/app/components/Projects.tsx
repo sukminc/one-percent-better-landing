@@ -31,6 +31,15 @@ interface CommitState {
   loading: boolean;
 }
 
+const STAGE_BASELINE_PROGRESS: Record<ProjectStage, number> = {
+  prototype: 36,
+  "mvp-loop": 52,
+  "workflow-build": 42,
+  concept: 26,
+  "ops-layer": 60,
+  archive: 100,
+};
+
 const REPO_TYPE_BASELINE: Record<ProjectRepoType, number> = {
   "mobile-app": 20,
   "web-app": 18,
@@ -133,6 +142,9 @@ function getRecommendedMvpTarget(project: Project, recent14Count: number | null)
 
 function getMvpProgress(project: Project, totalCount: number | null, recent14Count: number | null): number {
   if (project.status === "live") return 100;
+  if (!project.repoName) {
+    return STAGE_BASELINE_PROGRESS[project.stage];
+  }
   if (totalCount === null) return 0;
   const target = getRecommendedMvpTarget(project, recent14Count);
   return Math.max(0, Math.min(100, Math.round((totalCount / target) * 100)));
@@ -141,6 +153,7 @@ function getMvpProgress(project: Project, totalCount: number | null, recent14Cou
 function getMvpLabel(project: Project, progress: number, loading: boolean): string {
   if (project.stage === "archive") return "Archive";
   if (project.status === "live" || progress >= 100) return "Live ✓";
+  if (!project.repoName) return `${STAGE_LABELS[project.stage]} · Ready`;
   if (loading) return "Syncing...";
   return `${STAGE_LABELS[project.stage]} · ${progress}%`;
 }
@@ -148,6 +161,7 @@ function getMvpLabel(project: Project, progress: number, loading: boolean): stri
 function getMvpHint(project: Project, recent14Count: number | null): string {
   if (project.category === "archive") return "Proof-of-work archive";
   if (project.category === "featured") return "Core brand product";
+  if (!project.repoName) return "Brand shell, naming, and product direction are already set";
   if (project.status === "live") return "MVP reached";
   const target = getRecommendedMvpTarget(project, recent14Count);
   const recent = recent14Count ?? 0;

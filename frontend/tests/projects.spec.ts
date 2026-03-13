@@ -16,6 +16,7 @@ test.describe("Projects", () => {
     await expect(page.locator("#projects")).toContainText("Archive / Proof of Work");
     await expect(page.locator("#projects")).toContainText("Coming soon");
     await expect(page.locator("#projects")).toContainText("Core brand product");
+    await expect(page.locator("#projects")).toContainText("Brand shell, naming, and product direction are already set");
   });
 
   test("about page shows build activity heatmap", async ({ page }) => {
@@ -24,5 +25,6 @@ test.describe("Projects", () => {
     await expect(page.locator("body")).toContainText("Build activity");
     await expect(page.locator("body")).toContainText("Recent GitHub activity");
     await expect(page.locator("body")).toContainText("Open GitHub");
+    await expect(page.locator("body")).toContainText("Top repos");
   });
 });

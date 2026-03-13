@@ -38,6 +38,12 @@ type ActivityState = {
   reposAttempted?: number;
   reposTracked: number;
   totalCommits: number;
+  topRepos?: Array<{
+    repoName: string;
+    displayName: string;
+    commits: number;
+    url: string;
+  }>;
 };
 
 function intensityClass(count: number) {
@@ -91,6 +97,7 @@ export default function About() {
         activity.days.slice(weekIndex * 7, weekIndex * 7 + 7)
       )
     : [];
+  const topRepoMax = Math.max(...(activity?.topRepos?.map((repo) => repo.commits) ?? [1]));
 
   return (
     <section id="about" className="px-6 pb-24">
@@ -250,25 +257,65 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-8 overflow-x-auto">
-              <div className="inline-flex min-w-max gap-1.5">
-                {heatmapWeeks.length > 0 ? (
-                  heatmapWeeks.map((week, weekIndex) => (
-                    <div key={weekIndex} className="grid grid-rows-7 gap-1.5">
-                      {week.map((day) => (
-                        <div
-                          key={day.date}
-                          title={`${day.date}: ${day.count} commit${day.count === 1 ? "" : "s"}`}
-                          className={`h-3.5 w-3.5 rounded-[4px] border ${intensityClass(day.count)}`}
-                        />
-                      ))}
+            <div className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
+              <div className="overflow-x-auto">
+                <div className="inline-flex min-w-max gap-1.5">
+                  {heatmapWeeks.length > 0 ? (
+                    heatmapWeeks.map((week, weekIndex) => (
+                      <div key={weekIndex} className="grid grid-rows-7 gap-1.5">
+                        {week.map((day) => (
+                          <div
+                            key={day.date}
+                            title={`${day.date}: ${day.count} commit${day.count === 1 ? "" : "s"}`}
+                            className={`h-3.5 w-3.5 rounded-[4px] border ${intensityClass(day.count)}`}
+                          />
+                        ))}
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-sm text-[#8b857b]">
+                      Loading recent activity...
                     </div>
-                  ))
-                ) : (
-                  <div className="text-sm text-[#8b857b]">
-                    Loading recent activity...
+                  )}
+                </div>
+              </div>
+
+              <div className="min-w-0">
+                <div className="rounded-[1.1rem] border border-[#e5dfd5] bg-[#fbf8f3] px-4 py-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#8b857b]">
+                      Top repos
+                    </p>
+                    <p className="text-[11px] text-[#8b857b]">84d view</p>
                   </div>
-                )}
+                  <div className="mt-4 space-y-3">
+                    {(activity?.topRepos ?? []).map((repo) => (
+                      <a
+                        key={repo.repoName}
+                        href={repo.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block rounded-xl px-2 py-2 transition-colors hover:bg-[#f3ede4]"
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="min-w-0">
+                            <p className="truncate text-sm font-medium text-[#111111] group-hover:text-[#5f5a52]">
+                              {repo.displayName}
+                            </p>
+                            <p className="text-[11px] text-[#8b857b]">{repo.commits} commits</p>
+                          </div>
+                          <ArrowUpRight size={12} className="shrink-0 text-[#8b857b]" />
+                        </div>
+                        <div className="mt-2 h-2 overflow-hidden rounded-full bg-[#ebe5db]">
+                          <div
+                            className="h-full rounded-full bg-[linear-gradient(90deg,#111111_0%,#7d6850_55%,#c7b08a_100%)]"
+                            style={{ width: `${Math.max(10, Math.round((repo.commits / topRepoMax) * 100))}%` }}
+                          />
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 

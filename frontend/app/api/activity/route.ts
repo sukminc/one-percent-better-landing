@@ -13,6 +13,19 @@ function dayKey(date: Date) {
   return date.toISOString().slice(0, 10);
 }
 
+function displayNameForRepo(repoName: string) {
+  const matchedProject = projects.find((project) => project.repoName === repoName);
+  if (matchedProject) {
+    return matchedProject.title;
+  }
+
+  if (repoName === "one-percent-better-landing") {
+    return "1% Better - This Website";
+  }
+
+  return repoName;
+}
+
 export async function GET() {
   const since = new Date();
   since.setUTCHours(0, 0, 0, 0);
@@ -28,6 +41,7 @@ export async function GET() {
   );
 
   const counts = new Map<string, number>();
+  const repoCounts = new Map<string, number>();
 
   try {
     const results = await Promise.allSettled(
@@ -61,6 +75,7 @@ export async function GET() {
 
           const key = dayKey(new Date(iso));
           counts.set(key, (counts.get(key) ?? 0) + 1);
+          repoCounts.set(repoName, (repoCounts.get(repoName) ?? 0) + 1);
         });
       })
     );
@@ -78,6 +93,16 @@ export async function GET() {
       };
     });
 
+    const topRepos = Array.from(repoCounts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(([repoName, commits]) => ({
+        repoName,
+        displayName: displayNameForRepo(repoName),
+        commits,
+        url: `https://github.com/${GH_OWNER}/${repoName}`,
+      }));
+
     return NextResponse.json(
       {
         days,
@@ -85,6 +110,7 @@ export async function GET() {
         reposAttempted: repoNames.length,
         totalCommits: days.reduce((sum, day) => sum + day.count, 0),
         activeDays: days.filter((day) => day.count > 0).length,
+        topRepos,
       },
       {
         headers: { "Cache-Control": "no-store, max-age=0" },
