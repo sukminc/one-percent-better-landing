@@ -191,8 +191,7 @@ export default function About() {
         </div>
 
         <div className="mt-10 glass-panel rounded-[2rem] p-8 sm:p-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-xl">
+          <div className="max-w-3xl">
               <p className="text-xs font-mono uppercase tracking-[0.22em] text-[#8b857b]">
                 Build activity
               </p>
@@ -203,21 +202,20 @@ export default function About() {
                 Not a generic link dump. A visual record of actual reps. This heatmap
                 aggregates recent commit activity from the landing page repo plus the linked 1% Better repositories.
               </p>
-            </div>
 
-            <a
-              href="https://github.com/sukminc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-[#ddd8cf] px-5 py-3 text-sm text-[#5f5a52] transition-colors hover:border-[#b9b2a7] hover:text-[#111111]"
-            >
-              Open GitHub
-              <ArrowUpRight size={14} />
-            </a>
+              <a
+                href="https://github.com/sukminc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#ddd8cf] px-5 py-3 text-sm text-[#5f5a52] transition-colors hover:border-[#b9b2a7] hover:text-[#111111]"
+              >
+                Open GitHub
+                <ArrowUpRight size={14} />
+              </a>
           </div>
 
           <div className="mt-8 rounded-[1.4rem] border border-[#e5dfd5] bg-[#f8f6f2] p-5 sm:p-6">
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="grid gap-6 sm:grid-cols-3">
               <div>
                 <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#8b857b]">
                   Active days
@@ -249,8 +247,8 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-6 overflow-x-auto">
-              <div className="flex min-w-max gap-1.5">
+            <div className="mt-8 overflow-x-auto">
+              <div className="inline-flex min-w-max gap-1.5">
                 {heatmapWeeks.length > 0 ? (
                   heatmapWeeks.map((week, weekIndex) => (
                     <div key={weekIndex} className="grid grid-rows-7 gap-1.5">
@@ -271,7 +269,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-5 flex items-center gap-3 text-xs text-[#8b857b]">
+            <div className="mt-5 inline-flex items-center gap-3 text-xs text-[#8b857b]">
               <span className="font-mono uppercase tracking-[0.16em]">Less</span>
               <div className="flex gap-1.5">
                 {[0, 1, 3, 5].map((count) => (
