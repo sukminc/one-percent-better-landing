@@ -122,7 +122,14 @@ export default function About() {
             <div className="flex flex-col gap-9 pl-6">
               {experience.map((e) => (
                 <div key={e.company} className="relative">
-                  <div className="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full border border-[#007AFF]/50 bg-black" />
+                  {e.period.includes("Present") ? (
+                    <span className="absolute -left-[25px] top-1.5 flex w-2 h-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#007AFF] opacity-60" />
+                      <span className="relative inline-flex rounded-full w-2 h-2 bg-[#007AFF]" />
+                    </span>
+                  ) : (
+                    <div className="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full border border-[#007AFF]/50 bg-black" />
+                  )}
 
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
                     <div>
