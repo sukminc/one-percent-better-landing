@@ -2,27 +2,21 @@
 
 import { ArrowUpRight } from "lucide-react";
 
+const BMAC_URL = "https://buymeacoffee.com/chris.yoon";
+const SUPPORT_AMOUNTS = [10, 25, 50];
+
 const TIERS = [
   {
     label: "Build",
     amount: 200,
     desc: "Early access to all tools at launch. Your name in the credits.",
-    hero: false,
     url: "https://buy.stripe.com/5kQ7sMaP496ggKe4s41wY04",
   },
   {
     label: "Accelerate",
     amount: 500,
     desc: "Above + direct feedback channel + priority feature requests.",
-    hero: false,
     url: "https://buy.stripe.com/6oU5kEaP45U451w9Mo1wY05",
-  },
-  {
-    label: "Partner",
-    amount: 3000,
-    desc: null,
-    hero: true,
-    url: "https://buy.stripe.com/6oUeVe1eueqA79E7Eg1wY06",
   },
 ];
 
@@ -44,9 +38,34 @@ export default function FundingCTA() {
         </div>
 
         <div className="flex flex-col gap-2">
-          {/* Standard tiers — 3 col */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {TIERS.filter((t) => !t.hero).map((tier) => (
+          {/* Support + Build + Accelerate — 3 col */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            {/* Support tier — BMAC */}
+            <button
+              onClick={() => handleFund(BMAC_URL)}
+              className="flex flex-col rounded-2xl p-5 bg-[#161618] border border-[#232329] hover:border-[#36363F] transition-all text-left group cursor-pointer"
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-medium text-[#F7F8F8]">Support</span>
+                <span className="text-xs text-[#4B4C58]">☕</span>
+              </div>
+              <p className="text-xs text-[#4B4C58] group-hover:text-[#8A8B97] transition-colors leading-relaxed mb-4">
+                Buy me a coffee. Every bit compounds.
+              </p>
+              <div className="flex gap-1.5 mt-auto">
+                {SUPPORT_AMOUNTS.map((amt) => (
+                  <span
+                    key={amt}
+                    className="text-[10px] font-mono text-[#5E5CE6] border border-[#5E5CE6]/30 rounded-md px-1.5 py-0.5"
+                  >
+                    ${amt}
+                  </span>
+                ))}
+              </div>
+            </button>
+
+            {/* Build + Accelerate */}
+            {TIERS.map((tier) => (
               <button
                 key={tier.label}
                 onClick={() => handleFund(tier.url)}
@@ -63,9 +82,9 @@ export default function FundingCTA() {
             ))}
           </div>
 
-          {/* Hero tier — All-In */}
+          {/* Hero tier — Partner */}
           <button
-            onClick={() => handleFund("https://buy.stripe.com/28EfZi3mCfuE1Pk7Eg1wY03")}
+            onClick={() => handleFund("https://buy.stripe.com/6oUeVe1eueqA79E7Eg1wY06")}
             className="w-full rounded-2xl border border-amber-500/40 bg-amber-500/5 hover:bg-amber-500/8 hover:border-amber-400/60 transition-all cursor-pointer px-6 py-5 text-left group"
           >
             <div className="flex items-start justify-between gap-4">

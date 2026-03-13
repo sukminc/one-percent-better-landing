@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Clock, ExternalLink, GitBranch } from "lucide-react";
+import { Clock, ExternalLink, GitBranch } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import {
   SiNextdotjs, SiFastapi, SiPython, SiPandas, SiNumpy, SiVercel,
@@ -10,7 +10,6 @@ import {
 } from "react-icons/si";
 import { projects, type Project, type ProjectStatus } from "../data/projects";
 
-const BMAC = "https://buymeacoffee.com/chris.yoon";
 const GH_OWNER = "sukminc";
 
 const REPO_MAP: Record<string, string> = Object.fromEntries(
@@ -106,7 +105,8 @@ function ProjectCard({ project, commitState }: { project: Project; commitState: 
   return (
     <div className={project.featured ? "md:col-span-2" : ""}>
       <div
-        className={`flex flex-col rounded-2xl p-6 bg-[#161618] border transition-colors h-full ${
+        onClick={() => document.getElementById("fund")?.scrollIntoView({ behavior: "smooth" })}
+        className={`flex flex-col rounded-2xl p-6 bg-[#161618] border transition-colors h-full cursor-pointer ${
           project.featured
             ? "border-[#5E5CE6]/25 hover:border-[#5E5CE6]/40"
             : "border-[#232329] hover:border-[#36363F]"
@@ -126,22 +126,12 @@ function ProjectCard({ project, commitState }: { project: Project; commitState: 
               </div>
             )}
           </div>
-          <div className="flex items-center gap-2.5 flex-shrink-0">
-            {commitState.totalCount !== null && (
-              <div className="text-right">
-                <span className="text-base font-bold text-[#F7F8F8] leading-none">{commitState.totalCount}</span>
-                <p className="text-[9px] text-[#4B4C58]">commits</p>
-              </div>
-            )}
-            <a
-              href={BMAC}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-7 h-7 rounded-lg border border-[#232329] flex items-center justify-center text-[#4B4C58] hover:border-[#5E5CE6]/40 hover:text-[#5E5CE6] transition-all"
-            >
-              <ArrowUpRight size={13} />
-            </a>
-          </div>
+          {commitState.totalCount !== null && (
+            <div className="text-right flex-shrink-0">
+              <span className="text-base font-bold text-[#F7F8F8] leading-none">{commitState.totalCount}</span>
+              <p className="text-[9px] text-[#4B4C58]">commits</p>
+            </div>
+          )}
         </div>
 
         {/* Progress bar */}
@@ -182,6 +172,7 @@ function ProjectCard({ project, commitState }: { project: Project; commitState: 
                 href={c.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="group flex items-start gap-2.5 py-1.5 hover:bg-white/[0.02] rounded-lg px-1.5 -mx-1.5 transition-colors"
               >
                 <div className={`mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 ${i === 0 ? "bg-[#5E5CE6]" : "bg-[#36363F]"}`} />
@@ -204,22 +195,11 @@ function ProjectCard({ project, commitState }: { project: Project; commitState: 
         </div>
 
         {/* Tech icons */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
+        <div className="flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
             <TechBadge key={tag} tag={tag} />
           ))}
         </div>
-
-        {/* Single fund CTA → scrolls to #fund */}
-        <a
-          href="#fund"
-          className="flex items-center justify-between w-full rounded-xl border border-[#232329] hover:border-[#5E5CE6]/40 bg-[#1C1C1F] hover:bg-[#5E5CE6]/5 px-4 py-3 transition-all group"
-        >
-          <span className="text-sm text-[#8A8B97] group-hover:text-[#F7F8F8] transition-colors">
-            Back this build
-          </span>
-          <ArrowUpRight size={14} className="text-[#4B4C58] group-hover:text-[#5E5CE6] transition-colors" />
-        </a>
       </div>
     </div>
   );
