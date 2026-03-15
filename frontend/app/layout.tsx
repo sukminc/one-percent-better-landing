@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://onepercentbetter.now"),
   title: "1% Better",
   description:
-    "Quiet products, fast loops, and a public system for funding, hiring, and compounding better work.",
+    "Senior data engineer building useful products in public. Hiring-friendly proof of work, small product loops, and visible execution.",
   icons: {
     icon: [
       { url: "/icon", sizes: "512x512", type: "image/png" },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "1% Better",
     description:
-      "Quiet products, fast loops, and a public system for funding, hiring, and compounding better work.",
+      "Senior data engineer building useful products in public. Hiring-friendly proof of work, small product loops, and visible execution.",
     url: "https://onepercentbetter.now",
     siteName: "1% Better",
     locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "1% Better",
     description:
-      "Quiet products, fast loops, and a public system for funding, hiring, and compounding better work.",
+      "Senior data engineer building useful products in public. Hiring-friendly proof of work, small product loops, and visible execution.",
     images: ["/opengraph-image"],
   },
 };

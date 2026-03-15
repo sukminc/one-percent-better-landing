@@ -9,7 +9,7 @@ const experience = [
     role: "Founder",
     period: "2025 - Present",
     summary:
-      "Using this studio as a live learning loop for LLMs, product iteration, and fast deployment.",
+      "Built a recruiter-friendly public surface and small product loops that keep recent execution visible.",
   },
   {
     company: "TheScore / ESPN Bet",
@@ -23,7 +23,7 @@ const experience = [
     role: "Data / QA / Automation",
     period: "2016 - 2023",
     summary:
-      "Spent years building the habits that still shape this work: validate the data, automate the pain, and ship carefully.",
+      "Built the habits that still drive this work: validate the data, automate repetitive pain, and ship systems people can trust.",
   },
 ];
 
@@ -108,33 +108,25 @@ export default function About() {
           </p>
 
           <h2 className="mt-4 text-3xl md:text-5xl font-semibold tracking-tight text-[#111111]">
-            This is a working season, not a finished story.
+            Proven data engineering. Visible current execution.
           </h2>
 
           <div className="mt-8 space-y-5 text-base leading-8 text-[#5f5a52]">
             <p>
-              I built data systems for over a decade, most recently as a senior
-              data engineer at TheScore / ESPN Bet. After that chapter, I started
-              using 1% Better as a place to keep moving: ship simple apps,
-              learn LLM workflows in public, and turn ideas into real product
-              reps instead of waiting for perfect conditions.
+              I have spent 10+ years in data engineering, QA, automation, and data
+              quality across fintech, media, and enterprise systems. Most recently,
+              I was a Senior Data Engineer at theScore / ESPN Bet, building pipelines,
+              observability, and reporting for high-volume betting operations.
             </p>
             <p>
-              `1% Better.dev` is where that current season shows up most clearly:
-              simple products, public execution, and a hiring story that stays
-              grounded in recent work. `1% Better.poker` is the more specialized
-              direction I still intend to grow into when time and resources allow.
+              1% Better.dev is the public layer for my current work. I use it to ship
+              small products, stay hands-on with LLM workflows and delivery, and keep
+              recent execution easy for recruiters and collaborators to verify.
             </p>
             <p>
-              The original domain came from a poker product idea. That part of the
-              story still matters, but it is not the main thing I want this page
-              to communicate right now. The more honest story is simpler: build
-              small useful things, avoid over-engineering, and keep the work visible.
-            </p>
-            <p>
-              That is also why the funding page exists. It is not startup theater.
-              It is a practical way to keep learning, keep deploying, and keep the
-              momentum alive while I look for a job or a more durable revenue path.
+              The hiring story is straightforward: proven engineering depth first,
+              then current product reps. The site, linked repos, and activity feed
+              are here to make that legible quickly.
             </p>
           </div>
         </div>
@@ -145,10 +137,10 @@ export default function About() {
               Core value
             </p>
             <p className="mt-4 text-lg font-medium text-[#111111]">
-              One percent better.
+              Useful first.
             </p>
             <p className="mt-3 text-sm leading-6 text-[#5f5a52]">
-              Small improvements, repeated often enough, become direction.
+              Tight scope, clean execution, and repeated shipping beats bigger promises.
             </p>
           </div>
           <div className="glass-panel rounded-[1.6rem] p-6">
@@ -156,23 +148,21 @@ export default function About() {
               Right now
             </p>
             <p className="mt-4 text-lg font-medium text-[#111111]">
-              Fast shipping.
+              Small products, real reps.
             </p>
             <p className="mt-3 text-sm leading-6 text-[#5f5a52]">
-              1% Better Today and 1% Better Focus are lightweight products meant
-              to get out fast and teach me something immediately.
+              Today, Focus, and the site itself are active proof surfaces, not concept art.
             </p>
           </div>
           <div className="glass-panel rounded-[1.6rem] p-6">
             <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#8b857b]">
-              Later
+              Separate vertical
             </p>
             <p className="mt-4 text-lg font-medium text-[#111111]">
-              Deeper bets.
+              Poker stays separate.
             </p>
             <p className="mt-3 text-sm leading-6 text-[#5f5a52]">
-              If income or runway improves, I expect to return to the poker-side
-              products with more focus and more patience, as a separate vertical.
+              It remains a distinct specialist lane and does not lead the hiring story here.
             </p>
           </div>
         </div>
@@ -208,8 +198,8 @@ export default function About() {
                 Recent GitHub activity across this site and the linked 1% Better repos.
               </h3>
               <p className="mt-4 text-sm leading-7 text-[#5f5a52]">
-                Not a generic link dump. A visual record of actual reps. This heatmap
-                aggregates recent commit activity from the landing page repo plus the linked 1% Better repositories.
+                A quick record of actual reps. This heatmap aggregates recent commit
+                activity from the landing page repo plus the linked 1% Better repositories.
               </p>
 
               <a

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { BRAND } from "./lib/brand";
 
 export const runtime = "edge";
-export const alt = "1% Better — Small apps. Fast loops.";
+export const alt = "1% Better — Proven engineering. Visible execution.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -78,12 +78,12 @@ export default function OGImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Small apps.
-            <span style={{ color: BRAND.muted }}> Fast loops.</span>
+            Proven engineering.
+            <span style={{ color: BRAND.muted }}> Visible execution.</span>
           </div>
           <div style={{ fontSize: "24px", color: BRAND.muted, maxWidth: "760px", lineHeight: 1.4 }}>
-            A minimal product studio for learning in public, shipping quickly,
-            and getting one percent better on every cycle.
+            Hiring and trust surface for Chris S. Yoon: small products, public
+            proof, and recent work you can verify quickly.
           </div>
         </div>
 
@@ -121,7 +121,7 @@ export default function OGImage() {
                 Chris S. Yoon
               </span>
               <span style={{ color: BRAND.muted, fontSize: "12px" }}>
-                Product studio · funding page · linkedin.com/in/sukminyoon
+                Hiring surface · linkedin.com/in/sukminyoon
               </span>
             </div>
           </div>

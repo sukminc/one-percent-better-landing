@@ -4,26 +4,26 @@ import BrandMark from "./BrandMark";
 
 const signals = [
   {
-    label: "Role",
+    label: "Experience",
+    value: "10+ years",
+    detail: "Data engineering, validation, automation, and delivery across fintech, media, and enterprise.",
+  },
+  {
+    label: "Latest role",
     value: "Senior Data Engineer",
-    detail: "Shipping small product loops while staying sharp on production systems.",
+    detail: "Most recently at theScore / ESPN Bet, building reliable pipelines and reporting systems.",
   },
   {
-    label: "Mode",
-    value: "Build in public",
-    detail: "Use visible work to create signal instead of waiting for a perfect launch.",
-  },
-  {
-    label: "Focus",
-    value: "Useful first",
-    detail: "Tight scope, fast feedback, and enough clarity to ship again tomorrow.",
+    label: "Current track",
+    value: "Visible execution",
+    detail: "Small product loops and public proof that keep the recent work easy to verify.",
   },
 ];
 
 const principles = [
-  "Keep the product small enough to ship before it turns into a systems project.",
-  "Use this site as the public trust layer for hiring, product, and next-step conversations.",
-  "Let each new release earn more surface area instead of claiming it early.",
+  "Proven engineering background first. Small products as current proof.",
+  "Useful scope beats bigger promises.",
+  "Public work should shorten the distance between interest and trust.",
 ];
 
 export default function Hero() {
@@ -40,17 +40,17 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 rounded-full border border-[#ddd3c6] bg-[#fbf7f0] px-4 py-2">
               <span className="h-2 w-2 rounded-full bg-[#111111]" />
               <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#6f6250]">
-                public build surface
+                hiring + trust surface
               </span>
             </div>
             <h1 className="mt-8 max-w-5xl text-[3.45rem] font-semibold leading-[0.92] tracking-[-0.08em] text-[#111111] sm:text-[4.6rem] lg:text-[6.2rem]">
-              Build useful things in public.
+              Senior data engineer building useful products in public.
             </h1>
 
             <p className="mt-6 max-w-2xl text-[1.08rem] leading-8 text-[#5f5a52] sm:text-[1.18rem]">
-              1% Better.dev is the public layer for my next season of work:
-              small products, fast feedback loops, and visible execution that
-              creates real signal for hiring, product, and future bets.
+              1% Better.dev is Chris S. Yoon&apos;s hiring and trust surface:
+              proven data engineering experience, small product loops, and
+              visible execution that stays easy to verify.
             </p>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-[#7f7569]">
@@ -63,8 +63,9 @@ export default function Hero() {
               >
                 Chris S. Yoon
               </a>
-              . Senior data engineer using this surface to keep shipping while
-              the next role, product, and operating system take shape.
+              . Most recent full-time role: Senior Data Engineer at theScore /
+              ESPN Bet. Open to senior data, platform, and AI product
+              engineering roles.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -72,14 +73,14 @@ export default function Hero() {
                 href="#projects"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#111111] bg-[#111111] px-5 py-3 text-sm font-medium text-[#fbf7f0] transition-colors hover:bg-[#252525]"
               >
-                See current work
+                See selected work
                 <ArrowRight size={16} />
               </a>
               <Link
                 href="/about"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d2c7b6] bg-[#fbf7f0] px-5 py-3 text-sm font-medium text-[#111111] transition-colors hover:border-[#b9b2a7] hover:bg-[#f4eee5]"
               >
-                Read the story
+                Read background
                 <ArrowUpRight size={16} />
               </Link>
             </div>
@@ -106,10 +107,10 @@ export default function Hero() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#8b857b]">
-                    one percent, repeated
+                    how this site works
                   </p>
                   <h2 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-[#111111] sm:text-3xl">
-                    Small enough to ship. Strong enough to mean something.
+                    Credibility up front. Execution underneath.
                   </h2>
                 </div>
                 <span className="hidden rounded-full border border-[#ddd3c6] bg-[#f7f0e4] px-3 py-1 text-[10px] font-mono uppercase tracking-[0.18em] text-[#7d6850] sm:inline-flex">
@@ -122,9 +123,9 @@ export default function Hero() {
               </div>
 
               <p className="mt-8 max-w-lg text-sm leading-7 text-[#5f5a52] sm:text-[15px]">
-                The brand is not about motivational copy. It is about a working
-                pace: keep the surface simple, ship the useful version first, and
-                let repeated proof build trust over time.
+                Not a resume clone and not a vague studio page. The job is
+                simple: make the work legible fast, then let the products and
+                repos carry the proof.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -144,31 +145,31 @@ export default function Hero() {
         <div className="mt-16 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="glass-panel rounded-[2rem] p-6 sm:p-8">
             <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#8b857b]">
-              Current thesis
+              What this site proves
             </p>
             <div className="mt-6 grid gap-6 md:grid-cols-3">
               <div>
                 <p className="text-4xl font-semibold tracking-[-0.05em] text-[#111111]">
-                  1%
+                  Depth
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#5f5a52]">
-                  Improvement is a compounding operating system, not branding theater.
+                  A decade-plus in data engineering means the product work sits on real technical footing.
                 </p>
               </div>
               <div>
                 <p className="text-4xl font-semibold tracking-[-0.05em] text-[#111111]">
-                  Useful
+                  Range
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#5f5a52]">
-                  The first version should help someone before it tries to impress everyone.
+                  The public work covers product judgment, engineering craft, and shipping discipline.
                 </p>
               </div>
               <div>
                 <p className="text-4xl font-semibold tracking-[-0.05em] text-[#111111]">
-                  Visible
+                  Pace
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#5f5a52]">
-                  Public proof matters because it shortens the distance between idea and trust.
+                  Recent builds, linked repos, and activity keep the current signal real.
                 </p>
               </div>
             </div>
@@ -176,13 +177,13 @@ export default function Hero() {
 
           <div className="glass-panel rounded-[2rem] p-6 sm:p-8">
             <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#8b857b]">
-              Scope control
+              Separate verticals
             </p>
             <div className="mt-5 flex flex-col gap-4">
               {[
-                "Keep poker as a separate specialist vertical until it earns more brand surface.",
-                "Use the landing page as a clean hiring, product, and credibility layer.",
-                "Let the operating system stay underneath the brand instead of dominating it.",
+                "Specialist lanes stay separate until they earn more room.",
+                "The dev surface stays centered on hiring, products, and engineering credibility.",
+                "Any future surface area should be earned through shipped proof, not claimed early.",
               ].map((note, index) => (
                 <div key={note} className="flex gap-4 border-t border-[#ebe5db] pt-4 first:border-t-0 first:pt-0">
                   <span className="text-xs font-mono text-[#8b857b]">

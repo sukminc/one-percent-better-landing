@@ -89,20 +89,20 @@ const STAGE_LABELS: Record<ProjectStage, string> = {
 
 const CATEGORY_META: Record<ProjectCategory, { title: string; description: string }> = {
   featured: {
-    title: "Featured Products",
-    description: "Sneak peaks of the two products carrying the clearest 1% Better consumer story.",
+    title: "Current Product Work",
+    description: "Small product loops that show judgment, scope control, and active execution.",
   },
   poker: {
-    title: "Poker Product Line",
-    description: "The poker brand surface and its product family, with the structure visible but the deeper details still controlled.",
+    title: "Poker Vertical",
+    description: "A separate specialist lane. It matters as proof of seriousness, but it does not lead the hiring story here.",
   },
   ops: {
     title: "Operating Layer",
-    description: "The systems that power the portfolio itself, including the public website and internal workflow layer.",
+    description: "The public site and internal systems that keep the surface current, useful, and verifiable.",
   },
   archive: {
     title: "Archive / Proof of Work",
-    description: "Proof of engineering depth that stays visible without competing with the active product thesis.",
+    description: "Past work that stays visible as evidence of engineering depth without competing with the active build track.",
   },
 };
 
@@ -210,6 +210,9 @@ function timeAgo(iso: string): string {
 }
 
 function FeaturedProjectCard({ project, index }: { project: Project; index: number }) {
+  const cfg = statusConfig[project.status];
+  const repoVisibility = project.visibility === "public" ? "Public repo" : "Private build";
+  const stageLabel = STAGE_LABELS[project.stage];
   const variants = [
     {
       shell:
@@ -233,18 +236,55 @@ function FeaturedProjectCard({ project, index }: { project: Project; index: numb
         <div className="min-w-0">
           <div className="flex items-center gap-2">
             <span className={`h-2 w-2 rounded-full ${variants.accent}`} />
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b857b]">Featured product</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b857b]">Current product</p>
           </div>
           <h3 className="mt-3 text-lg font-semibold text-[#111111]">{project.title}</h3>
           <p className="mt-2 max-w-xl text-sm leading-6 text-[#4f4a43]">{project.tagline}</p>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-[#6a6258]">{project.description}</p>
         </div>
         <span className={`rounded-full border px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] ${variants.badge}`}>
-          Coming soon
+          {cfg.label}
         </span>
       </div>
-      <div className="mt-6 flex items-end justify-between gap-3">
-        <p className="text-[11px] uppercase tracking-[0.16em] text-[#8b857b]">{variants.note}</p>
-        {project.mvpEta && <p className="text-[11px] text-[#8b857b]">{project.mvpEta}</p>}
+      <div className="mt-6 flex flex-wrap items-end justify-between gap-3">
+        <div className="flex flex-wrap gap-2">
+          <span className="rounded-full border border-[#ddd8cf] bg-[#fbf7f0] px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#7d6850]">
+            {stageLabel}
+          </span>
+          <span className="rounded-full border border-[#ddd8cf] bg-[#fbf7f0] px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#7d6850]">
+            {repoVisibility}
+          </span>
+        </div>
+        <div className="text-right">
+          <p className="text-[11px] uppercase tracking-[0.16em] text-[#8b857b]">{variants.note}</p>
+          {project.mvpEta && <p className="mt-1 text-[11px] text-[#8b857b]">{project.mvpEta}</p>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PokerVerticalCard() {
+  return (
+    <div className="glass-panel rounded-[1.75rem] border border-[#ddd8cf] bg-[linear-gradient(135deg,#fbf7f1_0%,#f3ede3_100%)] p-6 shadow-[0_18px_60px_rgba(17,17,17,0.05)]">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-[#7d6850]" />
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b857b]">Separate specialist lane</p>
+          </div>
+          <h3 className="mt-3 text-xl font-semibold text-[#111111]">
+            Poker remains visible, but secondary.
+          </h3>
+          <p className="mt-3 text-sm leading-7 text-[#5f5a52]">
+            1% Better.poker stays separate from the recruiter-facing story on this site.
+            It is relevant as proof that the work can support a serious vertical, but it
+            should earn more attention on its own surface.
+          </p>
+        </div>
+        <span className="rounded-full border border-[#ddd8cf] bg-[#fbf7f0] px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#7d6850]">
+          Not the main hiring story
+        </span>
       </div>
     </div>
   );
@@ -433,7 +473,7 @@ export default function Projects() {
     category,
     meta: CATEGORY_META[category],
     items: displayOrder.filter((project) => project.category === category),
-  })).filter((section) => section.items.length > 0);
+  })).filter((section) => section.items.length > 0 || section.category === "poker");
 
   return (
     <section id="projects" className="section-shell py-24 px-6">
@@ -441,14 +481,14 @@ export default function Projects() {
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#111111]" />
-            <p className="text-xs text-[#8b857b]">Projects · Latest linked GitHub activity</p>
+            <p className="text-xs text-[#8b857b]">Selected work · linked activity</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-[#111111] tracking-tight">
-            Current products and public proof.
+            Selected work and public proof.
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-[#5f5a52]">
-            The front page stays focused on a few strong surfaces. Everything
-            underneath still carries enough visible work to prove the pace is real.
+            A few active product loops, the systems behind them, and archived work
+            that makes the engineering depth easy to trust.
           </p>
         </div>
 
@@ -459,19 +499,23 @@ export default function Projects() {
                 <h3 className="text-xl md:text-2xl font-semibold text-[#111111]">{section.meta.title}</h3>
                 <p className="mt-2 max-w-3xl text-sm leading-7 text-[#5f5a52]">{section.meta.description}</p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {section.items.map((project, index) =>
-                  section.category === "featured" ? (
-                    <FeaturedProjectCard key={project.slug} project={project} index={index} />
-                  ) : (
-                    <RichProjectCard
-                      key={project.slug}
-                      project={project}
-                      commitState={commitMap[project.slug] ?? { commits: [], totalCount: null, recent14Count: null, loading: false }}
-                    />
-                  )
-                )}
-              </div>
+              {section.category === "poker" ? (
+                <PokerVerticalCard />
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {section.items.map((project, index) =>
+                    section.category === "featured" ? (
+                      <FeaturedProjectCard key={project.slug} project={project} index={index} />
+                    ) : (
+                      <RichProjectCard
+                        key={project.slug}
+                        project={project}
+                        commitState={commitMap[project.slug] ?? { commits: [], totalCount: null, recent14Count: null, loading: false }}
+                      />
+                    )
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>

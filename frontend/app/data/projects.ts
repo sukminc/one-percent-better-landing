@@ -26,9 +26,9 @@ export const projects: Project[] = [
     slug: "opb-today",
     repoName: "one-percent-better-today",
     title: "1% Better Today",
-    tagline: "The core daily product in the 1% Better brand.",
+    tagline: "A narrow daily product loop built to ship quickly and earn trust through use.",
     description:
-      "The clearest expression of the 1% Better thesis so far: one small action, one clean loop, and almost no setup friction. Early stage, but strategically the core product because it is the most likely to launch first and validate the brand.",
+      "The clearest product thesis in the brand so far: one small action, one clean loop, and a scope tight enough to ship.",
     status: "building",
     repoType: "mobile-app",
     category: "featured",
@@ -89,9 +89,9 @@ export const projects: Project[] = [
     slug: "onepercent-focus",
     repoName: "one-percent-better-focus",
     title: "1% Better - Focus",
-    tagline: "A simple focus tool built to ship fast inside the brand.",
+    tagline: "A lightweight focus timer that shows the same thesis in practice: simple, useful, and shippable.",
     description:
-      "A lightweight focus timer that supports the same simple-shipping thesis as Today. Smaller than the core product, but still part of the public 1% Better product family.",
+      "A smaller public product loop that reinforces scope control, build quality, and fast iteration inside the same brand.",
     status: "building",
     repoType: "mobile-app",
     category: "featured",

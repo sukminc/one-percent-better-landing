@@ -14,29 +14,29 @@ export default function AboutSection() {
               </h2>
             </Link>
             <p className="text-sm text-[#5f5a52] leading-7">
-              I spent the last decade building production data systems across fintech,
-              media, and enterprise. Right now I am in a transition period: looking
-              for the right next role while using 1% Better as a place to learn
-              LLM workflows, ship simple products fast, and stay in motion.
+              10+ years in data engineering, validation, and automation. Most recent
+              full-time role: Senior Data Engineer at theScore / ESPN Bet. 1% Better.dev
+              is the current proof layer: small products, public repos, and recent
+              execution kept easy to verify.
             </p>
 
             <div className="mt-6 inline-flex items-center gap-2 border border-[#ddd8cf] bg-[#fbfaf7] rounded-full px-3 py-1">
               <span className="w-1.5 h-1.5 rounded-full bg-[#111111] animate-pulse" />
-              <span className="text-xs text-[#111111]">Open to work</span>
+              <span className="text-xs text-[#111111]">Open to Senior Data / Platform / AI Product roles</span>
             </div>
           </div>
 
           <div className="glass-panel rounded-[1.8rem] p-6 sm:p-8">
             <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#8b857b]">
-              Next step
+              Recruiter path
             </p>
             <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[#111111]">
-              Follow the thread before you reach out.
+              Career context, then current work.
             </h3>
             <p className="mt-4 text-sm leading-7 text-[#5f5a52]">
-              The cleanest path is: understand the story, see what I am building,
-              then decide whether you want a conversation. That keeps the flow consistent
-              with the rest of the site and gives the context first.
+              The quick read is straightforward: background, current build track,
+              then LinkedIn or GitHub if you want to go deeper. The site is designed
+              to make that decision fast.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">
@@ -45,7 +45,7 @@ export default function AboutSection() {
                 className="inline-flex items-center justify-between rounded-[1.2rem] border border-[#ddd8cf] bg-[#fbfaf7] px-5 py-4 text-sm text-[#111111] transition-colors hover:border-[#b9b2a7] hover:bg-[#f1efea]"
               >
                 <span>
-                  Read the full story
+                  Read background
                 </span>
                 <ArrowRight size={16} />
               </Link>
@@ -55,7 +55,7 @@ export default function AboutSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-between rounded-[1.2rem] border border-[#ddd8cf] px-5 py-4 text-sm text-[#5f5a52] transition-colors hover:border-[#b9b2a7] hover:text-[#111111]"
               >
-                <span>Then connect on LinkedIn</span>
+                <span>Open LinkedIn</span>
                 <ArrowUpRight size={16} />
               </a>
             </div>
