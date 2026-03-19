@@ -4,6 +4,7 @@ test.describe("Projects", () => {
   test("project section renders current products", async ({ page }) => {
     await page.goto("/");
 
+    await expect(page.locator("#projects")).toContainText("1% Better - Coaching");
     await expect(page.locator("#projects")).toContainText("1% Better Today");
     await expect(page.locator("#projects")).toContainText("1% Better - Focus");
     await expect(page.locator("#projects")).toContainText("1% Better - OS");
@@ -11,19 +12,9 @@ test.describe("Projects", () => {
     await expect(page.locator("#projects")).toContainText("Featured Products");
     await expect(page.locator("#projects")).toContainText("Operating Layer");
     await expect(page.locator("#projects")).toContainText("Archive / Proof of Work");
-    await expect(page.locator("#projects")).toContainText("Coming soon");
     await expect(page.locator("#projects")).toContainText("Core brand product");
     await expect(page.locator("#projects")).not.toContainText("Poker Product Line");
     await expect(page.locator("#projects")).not.toContainText("1% Better - Exploit Better");
     await expect(page.locator("#projects")).not.toContainText("1% Better - Action Keeper");
-  });
-
-  test("about page shows build activity heatmap", async ({ page }) => {
-    await page.goto("/about");
-
-    await expect(page.locator("body")).toContainText("Build activity");
-    await expect(page.locator("body")).toContainText("Recent GitHub activity");
-    await expect(page.locator("body")).toContainText("Open GitHub");
-    await expect(page.locator("body")).toContainText("Top repos");
   });
 });

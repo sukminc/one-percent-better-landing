@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://onepercentbetter.now"),
+  metadataBase: new URL("https://onepercentbetter.dev"),
   title: "1% Better",
   description:
     "Senior data engineer building useful products in public. Hiring-friendly proof of work, small product loops, and visible execution.",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "1% Better",
     description:
       "Senior data engineer building useful products in public. Hiring-friendly proof of work, small product loops, and visible execution.",
-    url: "https://onepercentbetter.now",
+    url: "https://onepercentbetter.dev",
     siteName: "1% Better",
     locale: "en_US",
     type: "website",

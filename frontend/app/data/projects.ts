@@ -23,8 +23,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "opb-coaching",
+    repoName: "opb-poker-app",
+    title: "1% Better - Coaching",
+    tagline: "AI coaching platform with credit economy and Stripe billing.",
+    description:
+      "A live subscription SaaS product. GPT-4o-mini powered coaching loop, credit wallet, Stripe payments, and Supabase backend — built and shipped solo.",
+    status: "live",
+    repoType: "web-app",
+    category: "featured",
+    stage: "mvp-loop",
+    tags: ["Next.js", "GPT-4o-mini", "Stripe", "Supabase", "TypeScript"],
+    url: "https://onepercentbetter.poker",
+    visibility: "private",
+    featured: true,
+  },
+  {
     slug: "opb-today",
-    repoName: "one-percent-better-today",
+    repoName: "opb-dev-today",
     title: "1% Better Today",
     tagline: "A narrow daily product loop built to ship quickly and earn trust through use.",
     description:
@@ -40,7 +56,7 @@ export const projects: Project[] = [
   },
   {
     slug: "this-website",
-    repoName: "one-percent-better-landing",
+    repoName: "opb-dev-frontend",
     title: "1% Better - This Website",
     tagline: "The public front door for hiring, trust, and the whole shipping story.",
     description:
@@ -50,29 +66,28 @@ export const projects: Project[] = [
     category: "ops",
     stage: "ops-layer",
     tags: ["Next.js", "TypeScript", "Vercel"],
-    url: "https://github.com/sukminc/one-percent-better-landing",
+    url: "https://github.com/sukminc/opb-dev-frontend",
     visibility: "public",
   },
   {
     slug: "opb-os",
-    repoName: "one-percent-better-os",
+    repoName: "opb-os",
     title: "1% Better - OS",
     tagline: "Workflow automation for repeatable project shipping.",
     description:
       "An internal operating system for the 1% Better build loop. It keeps the portfolio and recruiter-facing surfaces current without manual drift, while staying clearly internal.",
-    status: "building",
+    status: "live",
     repoType: "automation",
     category: "ops",
     stage: "ops-layer",
     tags: ["Python", "GitHub Actions", "JSON", "CLI"],
-    url: "https://github.com/sukminc/one-percent-better-os",
+    url: "https://github.com/sukminc/opb-os",
     visibility: "internal",
     readinessSignals: ["Workflow engine active", "Landing sync in use", "Weekly ops layer running"],
-    mvpEta: "Target MVP: March 2026",
   },
   {
     slug: "bluejays-moneyball",
-    repoName: "bluejays-financial-mlops",
+    repoName: "deng-bluejays-financial",
     title: "Blue Jays Moneyball ETL",
     tagline: "Archive of data engineering work and pipeline thinking.",
     description:
@@ -82,12 +97,12 @@ export const projects: Project[] = [
     category: "archive",
     stage: "archive",
     tags: ["Python", "Apache Airflow", "PostgreSQL", "Docker", "GitHub Actions"],
-    url: "https://github.com/sukminc/bluejays-financial-mlops",
+    url: "https://github.com/sukminc/deng-bluejays-financial",
     visibility: "public",
   },
   {
     slug: "onepercent-focus",
-    repoName: "one-percent-better-focus",
+    repoName: "opb-dev-focus",
     title: "1% Better - Focus",
     tagline: "A lightweight focus timer that shows the same thesis in practice: simple, useful, and shippable.",
     description:
@@ -97,13 +112,13 @@ export const projects: Project[] = [
     category: "featured",
     stage: "mvp-loop",
     tags: ["Flutter", "Dart", "Supabase", "iOS", "Android"],
-    url: "https://github.com/sukminc/one-percent-better-focus",
+    url: "https://github.com/sukminc/opb-dev-focus",
     visibility: "public",
-    mvpEta: "Target MVP: March 2026",
+    mvpEta: "Target MVP: Q2 2026",
   },
   {
     slug: "twelvelabs-validator",
-    repoName: "TwelveLabs",
+    repoName: "sdet-twelvelabs",
     title: "TwelveLabs API Validator",
     tagline: "Interview challenge archive for multimodal API validation.",
     description:
@@ -113,7 +128,7 @@ export const projects: Project[] = [
     category: "archive",
     stage: "archive",
     tags: ["Python", "TwelveLabs", "Pytest"],
-    url: "https://github.com/sukminc/TwelveLabs",
+    url: "https://github.com/sukminc/sdet-twelvelabs",
     visibility: "public",
   },
 ];

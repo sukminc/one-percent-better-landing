@@ -5,7 +5,7 @@ Public brand hub and shipping board for the 1% Better portfolio.
 
 - Primary role: show current projects, recent GitHub execution, and hiring-first trust
 - Current deploy target: primary 1% Better landing domain
-- Local repo: `one-percent-better-landing`
+- Local repo: `opb-dev-frontend` (GitHub: `sukminc/opb-dev-frontend`)
 
 Rule: if a project is not listed in `frontend/app/data/projects.ts`, it is not an active public brand asset.
 Rule: if `frontend/app/data/projects.ts` conflicts with `../one-percent-better-os/projects.json` or `../one-percent-better-os/public_profile.json`, treat the OS files as canonical and update the landing data intentionally.
@@ -27,16 +27,15 @@ Current public projects live in `frontend/app/data/projects.ts`.
 
 At the moment the site should represent:
 - Featured Products:
-  - `1% Better Today`
-  - `1% Better - Focus`
-- Poker Product Line:
-  - `1% Better - Exploit Better`
-  - `1% Better - Action Keeper`
+  - `1% Better - Coaching` (opb-poker-app — AI coaching SaaS, Stripe, GPT-4o-mini)
+  - `1% Better Today` (opb-dev-today)
+  - `1% Better - Focus` (opb-dev-focus)
 - Operating Layer:
-  - `1% Better - OS`
+  - `1% Better - This Website` (opb-dev-frontend)
+  - `1% Better - OS` (opb-os)
 - Archive / Proof of Work:
-  - `Blue Jays Moneyball ETL`
-  - `TwelveLabs API Validator`
+  - `Blue Jays Moneyball ETL` (deng-bluejays-financial)
+  - `TwelveLabs API Validator` (sdet-twelvelabs)
 
 Public hierarchy matters:
 
