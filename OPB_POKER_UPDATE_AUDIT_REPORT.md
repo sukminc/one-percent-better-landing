@@ -28,7 +28,7 @@ Audit the live `opb-dev` site repo and produce a concrete update plan for `onepe
 
 - Treated `/Users/chrisyoon/GitHub/career-growth-os/docs/project-curation/opb-poker-curated-summary.md` as the main wording source for OPB Poker presentation.
 - Treated `/Users/chrisyoon/GitHub/career-growth-os/docs/repo-role-contract.md` as the ownership rule:
-  - `opb-poker-v2` proves
+  - `opb-poker` proves
   - `career-growth-os` curates
   - `opb-dev` presents
 - Chose not to recommend hero-level poker framing.
@@ -50,7 +50,7 @@ Audit the live `opb-dev` site repo and produce a concrete update plan for `onepe
 - Frontend implementation
 - Site code edits
 - Visual redesign
-- Changes to `opb-poker-v2`
+- Changes to `opb-poker`
 - Changes to `career-growth-os`
 - Runtime or product behavior changes
 

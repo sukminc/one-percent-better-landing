@@ -11,7 +11,7 @@ Implement the first controlled OPB Poker visibility update on `onepercentbetter.
 
 - Updated the project canon in [projects.ts](/Users/chrisyoon/GitHub/opb-dev/opb-dev-frontend/frontend/app/data/projects.ts):
   - removed the stale `1% Better - Coaching` featured card from the live site registry
-  - added `onepercentbetter.poker Backend` as a public `poker` category project backed by `opb-poker-v2`
+  - added `onepercentbetter.poker Backend` as a public `poker` category project backed by `opb-poker`
   - kept the wording grounded in the curated summary layer:
     - backend-first
     - cumulative memory
@@ -65,7 +65,7 @@ Implement the first controlled OPB Poker visibility update on `onepercentbetter.
 - Nav changes
 - Footer changes
 - Site-wide poker branding
-- Changes to `opb-poker-v2`
+- Changes to `opb-poker`
 - Changes to `career-growth-os`
 - New product claims or rollout-state changes
 

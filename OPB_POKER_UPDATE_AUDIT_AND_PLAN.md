@@ -35,7 +35,7 @@ Current issue:
 
 Why it matters:
 
-- The strongest current poker-related signal is `opb-poker-v2`, not a generic coaching surface.
+- The strongest current poker-related signal is `opb-poker`, not a generic coaching surface.
 - The site is currently missing the exact project that the cross-repo summary flow was built to support.
 
 ### 2. The poker section is only a placeholder
