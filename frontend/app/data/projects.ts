@@ -27,7 +27,7 @@ export const projects: Project[] = [
   {
     slug: "private-ai-poker-backend",
     title: "Private AI Poker Backend",
-    tagline: "Backend-first poker performance system. Real GG Poker session ingestion, cumulative player memory, and deterministic Today / Review / Brain outputs.",
+    tagline: "Three-layer data pipeline (raw → normalized → derived) over an entity-centric PostgreSQL schema. TDD-first build with deterministic output contracts, Pytest regression suites, and operator QA gates.",
     description:
       "Solvers and coaching tell you the right play — but they don't know your patterns. I wanted a system that remembers how I play, identifies what I keep getting wrong, and helps me fix one thing per session. So I built it.",
     status: "building",
@@ -40,9 +40,9 @@ export const projects: Project[] = [
     visibility: "private",
     mvpEta: "Private build · technical proof only",
     technicalProof: [
-      "Session-packet ingestion from real GG Poker files — duplicate-safe, evidence-preserved",
-      "Cumulative player-specific memory across sessions, not stateless hand review",
-      "Deterministic Today / Review / Brain runtime outputs with operator review flows",
+      "Ingestion pipeline treats each upload as a session packet: parsed, deduplicated, and reconciled into canonical truth before any derived layer runs — provenance preserved end-to-end.",
+      "Entity-centric PostgreSQL schema: player, session, tournament, hand, pattern, and intervention as first-class entities. Raw, normalized, and derived layers kept separate and independently queryable.",
+      "TDD-first across the full stack: output contracts defined before implementation, Pytest regression suite from ingestion through runtime serving, Playwright E2E on the consumer surface.",
     ],
     productWhy:
       "I started wanting to build for everyone. Then I realized: I am the tester. I am the audience. If I can't satisfy myself first, I can't satisfy anyone like me.",

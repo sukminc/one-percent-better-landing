@@ -51,9 +51,9 @@ export default function PokerStory() {
             </h3>
 
             <div className="mt-8 space-y-3 text-sm leading-7 text-[#5f5a52]">
-              <p>Ingests real GG Poker session packets and assembles canonical truth from every hand.</p>
-              <p>Builds cumulative, player-specific memory across sessions — not a one-time summary.</p>
-              <p>Generates deterministic Today / Review / Brain outputs grounded in actual evidence.</p>
+              <p>Three-layer data architecture: raw session packets ingested and deduplicated, normalized into canonical truth, derived interpretation built on top — each layer separate, inspectable, and independently testable.</p>
+              <p>Entity-centric PostgreSQL schema — player, session, tournament, hand, pattern, and intervention as first-class entities. Cumulative state across sessions, not stateless one-off review.</p>
+              <p>TDD-first: output contracts defined before implementation. Pytest regression suite covers ingestion through runtime serving. Playwright E2E on the consumer surface. Operator QA review gates before anything ships.</p>
             </div>
 
             <p className="mt-8 border-l-2 border-[#aacfbe] pl-4 text-sm leading-7 text-[#2d6a47] italic">
