@@ -19,39 +19,33 @@ export interface Project {
   visibility?: "public" | "private" | "internal";
   readinessSignals?: string[];
   repoName?: string;   // GitHub repo name under sukminc/ (omit if no repo)
+  technicalProof?: string[];   // bullet points for featured card (poker)
+  productWhy?: string;         // "why I built this" shown on featured card
 }
 
 export const projects: Project[] = [
   {
     slug: "private-ai-poker-backend",
     title: "Private AI Poker Backend",
-    tagline: "Current main build in poker, rebuilt from the foundation up to support backend truth, memory, and product iteration.",
+    tagline: "Backend-first poker performance system. Real GG Poker session ingestion, cumulative player memory, and deterministic Today / Review / Brain outputs.",
     description:
-      "A private poker performance system focused on session ingestion, cumulative memory, runtime outputs, and reviewable product logic. The public surface shows the technical depth, not the private strategy.",
+      "Solvers and coaching tell you the right play — but they don't know your patterns. I wanted a system that remembers how I play, identifies what I keep getting wrong, and helps me fix one thing per session. So I built it.",
     status: "building",
     repoType: "platform",
     category: "featured",
     stage: "workflow-build",
-    tags: ["Python", "PostgreSQL", "FastAPI", "Pytest", "JSON"],
+    tags: ["Python", "PostgreSQL", "FastAPI", "Pytest", "Supabase", "JSON"],
     featured: true,
     url: "https://onepercentbetter.poker",
     visibility: "private",
     mvpEta: "Private build · technical proof only",
-  },
-  {
-    slug: "opb-today",
-    repoName: "opb-dev-today",
-    title: "1% Better Today",
-    tagline: "A smaller daily product loop that now sits behind the current main build.",
-    description:
-      "A narrow loop still worth showing, but no longer the center of the public story now that the poker backend has become the main focus.",
-    status: "building",
-    repoType: "mobile-app",
-    category: "secondary",
-    stage: "prototype",
-    tags: ["FastAPI", "Supabase", "Stripe", "iOS", "Android"],
-    visibility: "private",
-    mvpEta: "Target MVP: April 2026",
+    technicalProof: [
+      "Session-packet ingestion from real GG Poker files — duplicate-safe, evidence-preserved",
+      "Cumulative player-specific memory across sessions, not stateless hand review",
+      "Deterministic Today / Review / Brain runtime outputs with operator review flows",
+    ],
+    productWhy:
+      "I started wanting to build for everyone. Then I realized: I am the tester. I am the audience. If I can't satisfy myself first, I can't satisfy anyone like me.",
   },
   {
     slug: "this-website",
@@ -100,22 +94,6 @@ export const projects: Project[] = [
     visibility: "public",
   },
   {
-    slug: "onepercent-focus",
-    repoName: "opb-dev-focus",
-    title: "1% Better - Focus",
-    tagline: "A lightweight focus timer kept as a secondary build rather than the current main focus.",
-    description:
-      "A supporting product loop that still shows scope control and shipping instinct, but it is no longer the main build driving the story.",
-    status: "building",
-    repoType: "mobile-app",
-    category: "secondary",
-    stage: "mvp-loop",
-    tags: ["Flutter", "Dart", "Supabase", "iOS", "Android"],
-    url: "https://github.com/sukminc/opb-dev-focus",
-    visibility: "public",
-    mvpEta: "Target MVP: Q2 2026",
-  },
-  {
     slug: "twelvelabs-validator",
     repoName: "sdet-twelvelabs",
     title: "TwelveLabs API Validator",
@@ -128,6 +106,35 @@ export const projects: Project[] = [
     stage: "archive",
     tags: ["Python", "TwelveLabs", "Pytest"],
     url: "https://github.com/sukminc/sdet-twelvelabs",
+    visibility: "public",
+  },
+  {
+    slug: "opb-today",
+    repoName: "opb-dev-today",
+    title: "1% Better Today",
+    tagline: "A daily product loop, paused while opb-poker is the main focus.",
+    description:
+      "A narrow loop still worth showing as proof of product range, but no longer the center of the public story. Paused while opb-poker is the active build.",
+    status: "building",
+    repoType: "mobile-app",
+    category: "archive",
+    stage: "archive",
+    tags: ["FastAPI", "Supabase", "Stripe", "iOS", "Android"],
+    visibility: "private",
+  },
+  {
+    slug: "onepercent-focus",
+    repoName: "opb-dev-focus",
+    title: "1% Better - Focus",
+    tagline: "A focus timer, paused while opb-poker is the main focus.",
+    description:
+      "A supporting product loop that still shows scope control and shipping instinct. Paused while opb-poker is the active build.",
+    status: "building",
+    repoType: "mobile-app",
+    category: "archive",
+    stage: "archive",
+    tags: ["Flutter", "Dart", "Supabase", "iOS", "Android"],
+    url: "https://github.com/sukminc/opb-dev-focus",
     visibility: "public",
   },
 ];

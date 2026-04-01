@@ -40,9 +40,9 @@ export default function BrandMark({
     <div className={`inline-flex items-center gap-3 ${className}`.trim()}>
       <div className="relative">
         <div
-          className={`relative inline-flex items-center justify-center border border-[#6f5336] bg-[linear-gradient(180deg,#fcf7ef_0%,#f0e0cb_58%,#ead7be_100%)] shadow-[0_18px_48px_rgba(17,17,17,0.08)] ${scale.shell}`}
+          className={`relative inline-flex items-center justify-center border border-[#1a3a2e] bg-[linear-gradient(180deg,#f2faf6_0%,#d8f0e4_58%,#c4e8d8_100%)] shadow-[0_18px_48px_rgba(17,17,17,0.08)] ${scale.shell}`}
         >
-          <span className={`font-semibold tracking-[-0.11em] text-[#2d2419] ${scale.text}`}>1%</span>
+          <span className={`font-semibold tracking-[-0.11em] text-[#1a3a2e] ${scale.text}`}>1%</span>
         </div>
       </div>
 
@@ -51,7 +51,7 @@ export default function BrandMark({
           <span className={`block font-semibold uppercase leading-none text-[#2d2419] ${scale.wordmark}`}>
             1% Better
           </span>
-          <span className={`mt-1 block font-mono uppercase tracking-[0.18em] text-[#8a6f50] ${scale.subline}`}>
+          <span className={`mt-1 block font-mono uppercase tracking-[0.18em] text-[#2d6a47] ${scale.subline}`}>
             {subtitle}
           </span>
         </div>

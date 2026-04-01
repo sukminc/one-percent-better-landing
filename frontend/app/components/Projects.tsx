@@ -90,7 +90,7 @@ const STAGE_LABELS: Record<ProjectStage, string> = {
 const CATEGORY_META: Record<ProjectCategory, { title: string; description: string }> = {
   featured: {
     title: "Current Main Build",
-    description: "The project that best represents current direction, technical depth, and active focus.",
+    description: "The project driving current technical depth and AI product focus.",
   },
   secondary: {
     title: "Secondary Builds",
@@ -102,20 +102,20 @@ const CATEGORY_META: Record<ProjectCategory, { title: string; description: strin
   },
   archive: {
     title: "Archive / Proof of Work",
-    description: "Past work that keeps engineering depth visible.",
+    description: "Past work and paused builds — proof of range, craft, and scope control.",
   },
 };
 
 const statusConfig: Record<ProjectStatus, { label: string; color: string; dot: string }> = {
   live: { label: "Live", color: "text-[#111111]", dot: "bg-[#111111]" },
-  building: { label: "Building", color: "text-[#6f5336]", dot: "bg-[#8a6f50] animate-pulse" },
-  idea: { label: "Idea", color: "text-[#8a6f50]", dot: "bg-[#b89a76]" },
+  building: { label: "Building", color: "text-[#1a3a2e]", dot: "bg-[#2d6a47] animate-pulse" },
+  idea: { label: "Idea", color: "text-[#2d6a47]", dot: "bg-[#6aaa88]" },
 };
 
 const STATUS_BAR: Record<ProjectStatus, string> = {
   live: "bg-[#111111]",
-  building: "bg-[#8a6f50]",
-  idea: "bg-[#b89a76]",
+  building: "bg-[#2d6a47]",
+  idea: "bg-[#6aaa88]",
 };
 
 const TECH_COLORS: Record<string, string> = {
@@ -188,12 +188,12 @@ function getMvpHint(project: Project, recent14Count: number | null): string {
 
 function TechBadge({ tag }: { tag: string }) {
   return (
-    <div title={tag} className="h-7 flex items-center gap-2 rounded-full border border-[#ddcbb3] bg-[linear-gradient(180deg,#faf4ea_0%,#f2e6d6_100%)] px-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]">
+    <div title={tag} className="h-7 flex items-center gap-2 rounded-full border border-[#aacfbe] bg-[linear-gradient(180deg,#f0f8f4_0%,#d8f0e4_100%)] px-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]">
       <span
         className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-        style={{ backgroundColor: TECH_COLORS[tag] ?? "#8b857b" }}
+        style={{ backgroundColor: TECH_COLORS[tag] ?? "#4a7a62" }}
       />
-      <span className="text-[10px] text-[#6f5336] leading-none">{tag}</span>
+      <span className="text-[10px] text-[#1a3a2e] leading-none">{tag}</span>
     </div>
   );
 }
@@ -232,47 +232,49 @@ function FeaturedProjectCard({ project, index }: { project: Project; index: numb
   ][index % 2];
 
   return (
-    <div className={`glass-panel rounded-[1.75rem] border px-6 py-6 shadow-[0_18px_60px_rgba(17,17,17,0.06)] md:min-h-[220px] flex flex-col justify-between ${variants.shell}`}>
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <div className="flex items-center gap-2">
-            <span className={`h-2 w-2 rounded-full ${variants.accent}`} />
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b857b]">Current focus</p>
-          </div>
-          <h3 className="mt-3 text-lg font-semibold text-[#111111]">{project.title}</h3>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-[#4f4a43]">{project.tagline}</p>
+    <div className="rounded-[2rem] border border-[#bdd8ca] bg-[linear-gradient(135deg,#fbf7f1_0%,#f1e9df_100%)] px-8 py-8 sm:px-10 sm:py-10">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-[#2d6a47]" />
+          <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#4a7a62]">Active build</p>
         </div>
-        <span className={`rounded-full border px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] ${variants.badge}`}>
+        <span className="rounded-full border border-[#111111]/20 bg-[#111111] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-[#f8f3ea]">
           {cfg.label}
         </span>
       </div>
-      <div className="mt-6 flex flex-wrap items-end justify-between gap-3">
-        <div className="flex flex-wrap gap-2">
-          <span className="rounded-full border border-[#d8c4a6] bg-[linear-gradient(180deg,#fcf7ee_0%,#f3e7d7_100%)] px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#6f5336]">
-            {stageLabel}
-          </span>
-          <span className="rounded-full border border-[#d8c4a6] bg-[linear-gradient(180deg,#fcf7ee_0%,#f3e7d7_100%)] px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-[#6f5336]">
-            {repoVisibility}
-          </span>
-        </div>
-        <div className="text-right">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-[#8a6f50]">{variants.note}</p>
-          {project.mvpEta && <p className="mt-1 text-[11px] text-[#8b857b]">{project.mvpEta}</p>}
-        </div>
-      </div>
-      {project.url && (
-        <div className="mt-5">
+
+      <h3 className="mt-5 text-xl font-semibold tracking-[-0.03em] text-[#111111] sm:text-2xl">{project.title}</h3>
+      <p className="mt-3 max-w-2xl text-sm leading-7 text-[#4f4a43]">{project.tagline}</p>
+
+      {project.technicalProof && project.technicalProof.length > 0 && (
+        <ul className="mt-6 space-y-2.5">
+          {project.technicalProof.map((point) => (
+            <li key={point} className="flex gap-3">
+              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2d6a47]" />
+              <p className="text-sm leading-7 text-[#5f5a52]">{point}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="mt-8 flex flex-wrap items-center gap-4">
+        {project.url && (
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-[#6f5336] transition-colors hover:text-[#111111]"
+            className="inline-flex items-center gap-2 rounded-full border border-[#1a3a2e] bg-[#1a3a2e] px-5 py-2.5 text-sm font-medium text-[#f2faf6] transition-colors hover:bg-[#24523a]"
           >
-            <span>Poker surface</span>
-            <ExternalLink size={14} />
+            onepercentbetter.poker
+            <ExternalLink size={13} />
           </a>
+        )}
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <TechBadge key={tag} tag={tag} />
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -287,7 +289,7 @@ function RichProjectCard({ project, commitState }: { project: Project; commitSta
 
   return (
     <div className={project.featured ? "md:col-span-2" : ""}>
-      <div className="glass-panel flex h-full flex-col rounded-[1.75rem] border-[#ddd8cf] p-6 transition-colors hover:border-[#c6a880] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_20px_60px_rgba(17,17,17,0.05),0_8px_28px_rgba(138,111,80,0.08)]">
+      <div className="glass-panel flex h-full flex-col rounded-[1.75rem] border-[#c0d8cc] p-6 transition-colors hover:border-[#7abba0] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_20px_60px_rgba(17,17,17,0.05),0_8px_28px_rgba(45,106,71,0.08)]">
         <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-0.5">
@@ -295,7 +297,7 @@ function RichProjectCard({ project, commitState }: { project: Project; commitSta
               <h3 className="text-sm font-semibold text-[#111111] truncate">{project.title}</h3>
             </div>
             {repoName && (
-              <div className="flex items-center gap-1.5 pl-3.5 text-[10px] text-[#8a6f50]">
+              <div className="flex items-center gap-1.5 pl-3.5 text-[10px] text-[#2d6a47]">
                 <GitBranch size={9} />
                 <span className="font-mono">{GH_OWNER}/{repoName}</span>
               </div>
@@ -304,26 +306,26 @@ function RichProjectCard({ project, commitState }: { project: Project; commitSta
           {commitState.totalCount !== null && repoName && (
             <div className="text-right flex-shrink-0">
               <span className="text-base font-bold text-[#111111] leading-none">{commitState.totalCount}</span>
-              <p className="text-[9px] text-[#8b857b]">commits</p>
+              <p className="text-[9px] text-[#4a7a62]">commits</p>
             </div>
           )}
         </div>
 
         <div className="mb-4">
-          <div className="mb-1.5 flex justify-between text-[10px] text-[#8b857b]">
+          <div className="mb-1.5 flex justify-between text-[10px] text-[#4a7a62]">
             <span className="truncate pr-2">{project.tagline}</span>
             <span className="flex-shrink-0">{progressLabel}</span>
           </div>
-          <div className="h-1 bg-[#ebe5db] rounded-full overflow-hidden">
+          <div className="h-1 bg-[#ccddd4] rounded-full overflow-hidden">
             <div
               className={`h-full rounded-full transition-all duration-700 ${STATUS_BAR[project.status]}`}
               style={{ width: `${progress}%` }}
             />
           </div>
           {project.mvpEta && (
-            <p className="mt-2 text-[10px] text-[#8b857b]">{project.mvpEta}</p>
+            <p className="mt-2 text-[10px] text-[#4a7a62]">{project.mvpEta}</p>
           )}
-          <p className="mt-1 text-[10px] text-[#a68a68]">{progressHint}</p>
+          <p className="mt-1 text-[10px] text-[#5a9a7a]">{progressHint}</p>
         </div>
 
         <div className="flex flex-col gap-0.5 mb-4 flex-1">
@@ -332,7 +334,7 @@ function RichProjectCard({ project, commitState }: { project: Project; commitSta
               {readinessSignals.map((signal) => (
                 <span
                   key={signal}
-                  className="rounded-full border border-[#d8c4a6] bg-[linear-gradient(180deg,#fcf7ee_0%,#f3e7d7_100%)] px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[#6f5336]"
+                  className="rounded-full border border-[#a8ccb8] bg-[linear-gradient(180deg,#f2faf6_0%,#d8f0e4_100%)] px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[#1a3a2e]"
                 >
                   {signal}
                 </span>
@@ -343,10 +345,10 @@ function RichProjectCard({ project, commitState }: { project: Project; commitSta
             <div className="space-y-2 py-1">
               {[0, 1, 2].map((i) => (
                 <div key={i} className="flex gap-2.5 animate-pulse">
-                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#d8d1c4] flex-shrink-0" />
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b8d4c8] flex-shrink-0" />
                   <div className="flex-1 space-y-1.5">
-                    <div className="h-2.5 bg-[#efebe4] rounded w-3/4" />
-                    <div className="h-2 bg-[#efebe4] rounded w-1/3" />
+                    <div className="h-2.5 bg-[#e0f0e8] rounded w-3/4" />
+                    <div className="h-2 bg-[#e0f0e8] rounded w-1/3" />
                   </div>
                 </div>
               ))}
@@ -358,23 +360,23 @@ function RichProjectCard({ project, commitState }: { project: Project; commitSta
               href={c.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group -mx-1.5 flex items-start gap-2.5 rounded-lg px-1.5 py-1.5 transition-colors hover:bg-[#f5ede1]"
+              className="group -mx-1.5 flex items-start gap-2.5 rounded-lg px-1.5 py-1.5 transition-colors hover:bg-[#e8f4ee]"
             >
-              <div className={`mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full ${i === 0 ? "bg-[#8a6f50]" : "bg-[#c4b29a]"}`} />
+              <div className={`mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full ${i === 0 ? "bg-[#2d6a47]" : "bg-[#7abba0]"}`} />
               <div className="flex-1 min-w-0">
                 <p className={`text-xs truncate leading-snug ${i === 0 ? "text-[#111111]" : "text-[#5f5a52]"} group-hover:text-[#111111] transition-colors`}>
                   {c.message.split("\n")[0]}
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <code className="text-[9px] text-[#8b857b] font-mono">{c.sha.slice(0, 7)}</code>
-                  <span className="text-[9px] text-[#c5bfb4]">·</span>
-                  <span className="flex items-center gap-1 text-[9px] text-[#8b857b]">
+                  <code className="text-[9px] text-[#4a7a62] font-mono">{c.sha.slice(0, 7)}</code>
+                  <span className="text-[9px] text-[#9abfb0]">·</span>
+                  <span className="flex items-center gap-1 text-[9px] text-[#4a7a62]">
                     <Clock size={8} />
                     {timeAgo(c.date)}
                   </span>
                 </div>
               </div>
-              <ExternalLink size={10} className="mt-1 flex-shrink-0 text-[#8a6f50] opacity-0 transition-opacity group-hover:opacity-100" />
+              <ExternalLink size={10} className="mt-1 flex-shrink-0 text-[#2d6a47] opacity-0 transition-opacity group-hover:opacity-100" />
             </a>
           ))}
         </div>
@@ -456,51 +458,44 @@ export default function Projects() {
     ? sortedSlugsRef.current.map((slug) => projects.find((p) => p.slug === slug)!).filter(Boolean)
     : projects;
 
-  const sections = (["featured", "secondary", "ops", "archive"] as ProjectCategory[]).map((category) => ({
-    category,
-    meta: CATEGORY_META[category],
-    items: displayOrder.filter((project) => project.category === category),
-  })).filter((section) => section.items.length > 0);
+  const featuredProjects = displayOrder.filter((p) => p.category === "featured");
+  const archiveProjects = displayOrder.filter((p) => p.category === "archive");
 
   return (
-    <section id="projects" className="section-shell py-24 px-6">
-      <div className="relative max-w-6xl mx-auto">
-        <div className="mb-10">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#8a6f50]" />
-            <p className="text-xs text-[#8a6f50]">Selected work · linked activity</p>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-[#111111] tracking-tight">
-            Selected work and public proof.
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#5f5a52]">
-            Active product loops, supporting systems, and proof of work.
-          </p>
-        </div>
+    <section id="projects" className="px-6 py-16">
+      <div className="mx-auto max-w-5xl">
 
-        <div className="space-y-10">
-          {sections.map((section) => (
-            <div key={section.category}>
-              <div className="mb-4">
-                <h3 className="text-xl md:text-2xl font-semibold text-[#111111]">{section.meta.title}</h3>
-                <p className="mt-2 max-w-3xl text-sm leading-7 text-[#5f5a52]">{section.meta.description}</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {section.items.map((project, index) =>
-                  section.category === "featured" ? (
-                    <FeaturedProjectCard key={project.slug} project={project} index={index} />
-                  ) : (
-                    <RichProjectCard
-                      key={project.slug}
-                      project={project}
-                      commitState={commitMap[project.slug] ?? { commits: [], totalCount: null, recent14Count: null, loading: false }}
-                    />
-                  )
-                )}
-              </div>
-            </div>
+        {/* Section label */}
+        <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#2d6a47]">
+          Work
+        </p>
+
+        {/* Featured — poker card, full width */}
+        <div className="mt-6">
+          {featuredProjects.map((project, index) => (
+            <FeaturedProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
+
+        {/* Archive — simple text list */}
+        {archiveProjects.length > 0 && (
+          <div className="mt-12 border-t border-[#c8ddd4] pt-8">
+            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#2d6a47]">
+              Past work
+            </p>
+            <div className="mt-4 divide-y divide-[#d4e8dc]">
+              {archiveProjects.map((project) => (
+                <div key={project.slug} className="flex items-baseline justify-between gap-6 py-3">
+                  <span className="text-sm text-[#111111]">{project.title}</span>
+                  <span className="flex-shrink-0 text-xs text-[#4a7a62]">
+                    {project.tags.slice(0, 3).join(", ")}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   );

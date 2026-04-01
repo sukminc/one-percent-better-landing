@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-[#dbcdb8] bg-[linear-gradient(180deg,rgba(251,247,240,0.96),rgba(245,238,228,0.92))] backdrop-blur-xl"
+          ? "border-b border-[#a8cfbc] bg-[linear-gradient(180deg,rgba(242,250,246,0.96),rgba(230,248,240,0.92))] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
@@ -28,28 +28,28 @@ export default function Navbar() {
             <span className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#2d2419]">
               1% Better.dev
             </span>
-            <span className="mt-1 block text-[10px] font-mono uppercase tracking-[0.2em] text-[#8a6f50]">
+            <span className="mt-1 block text-[10px] font-mono uppercase tracking-[0.2em] text-[#2d6a47]">
               public build surface
             </span>
           </div>
         </Link>
 
         <div className="flex items-center gap-3 sm:gap-6">
-          <div className="hidden md:flex items-center gap-2 rounded-full border border-[#d9c9b3] bg-[linear-gradient(180deg,#fbf5eb_0%,#f3e7d7_100%)] px-3 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
-            <span className="h-2 w-2 rounded-full bg-[#8a6f50]" />
-            <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#6f5336]">
-              small products. real signal.
+          <div className="hidden md:flex items-center gap-2 rounded-full border border-[#aacfbe] bg-[linear-gradient(180deg,#f2faf6_0%,#d8f0e4_100%)] px-3 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
+            <span className="h-2 w-2 rounded-full bg-[#2d6a47]" />
+            <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#1a3a2e]">
+              engineer. builder. obsessed.
             </span>
           </div>
           <a
             href="#projects"
-            className="inline-flex min-h-10 items-center rounded-full px-2 text-sm text-[#5f5a52] transition-colors hover:text-[#6f5336]"
+            className="inline-flex min-h-10 items-center rounded-full px-2 text-sm text-[#5f5a52] transition-colors hover:text-[#1a3a2e]"
           >
             Projects
           </a>
           <Link
             href="/about"
-            className="inline-flex min-h-10 items-center rounded-full px-2 text-sm text-[#5f5a52] transition-colors hover:text-[#6f5336]"
+            className="inline-flex min-h-10 items-center rounded-full px-2 text-sm text-[#5f5a52] transition-colors hover:text-[#1a3a2e]"
           >
             About
           </Link>

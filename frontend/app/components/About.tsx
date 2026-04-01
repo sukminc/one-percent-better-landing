@@ -42,7 +42,7 @@ export default function About() {
     <section id="about" className="px-6 pb-24">
       <div className="mx-auto max-w-4xl">
         <div className="glass-panel rounded-[2rem] p-8 sm:p-10">
-          <p className="text-xs font-mono uppercase tracking-[0.22em] text-[#8a6f50]">
+          <p className="text-xs font-mono uppercase tracking-[0.22em] text-[#2d6a47]">
             About
           </p>
 
@@ -69,7 +69,7 @@ export default function About() {
         <div className="mt-8 grid gap-3 md:grid-cols-3">
           {principles.map((item) => (
             <div key={item.label} className="glass-panel rounded-[1.45rem] p-4">
-              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#8a6f50]">
+              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#2d6a47]">
                 {item.label}
               </p>
               <p className="mt-2 text-sm leading-5 text-[#111111]">{item.value}</p>
@@ -79,7 +79,7 @@ export default function About() {
 
         <div className="mt-10 glass-panel rounded-[2rem] p-8 sm:p-10">
           <div className="max-w-3xl">
-            <p className="text-xs font-mono uppercase tracking-[0.22em] text-[#8a6f50]">
+            <p className="text-xs font-mono uppercase tracking-[0.22em] text-[#2d6a47]">
               Experience
             </p>
             <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[#111111]">
@@ -91,7 +91,7 @@ export default function About() {
             {experience.map((item) => (
               <div
                 key={item.company}
-                className="border-t border-[rgba(138,111,80,0.18)] pt-6 first:border-t-0 first:pt-0"
+                className="border-t border-[rgba(45,106,71,0.18)] pt-6 first:border-t-0 first:pt-0"
               >
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
                   <div>
@@ -100,7 +100,7 @@ export default function About() {
                     </p>
                     <p className="text-sm text-[#5f5a52]">{item.role}</p>
                   </div>
-                  <p className="text-xs font-mono uppercase tracking-[0.14em] text-[#8a6f50]">
+                  <p className="text-xs font-mono uppercase tracking-[0.14em] text-[#2d6a47]">
                     {item.period}
                   </p>
                 </div>
