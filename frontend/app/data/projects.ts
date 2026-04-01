@@ -34,7 +34,7 @@ export const projects: Project[] = [
     repoType: "platform",
     category: "featured",
     stage: "workflow-build",
-    tags: ["Python", "PostgreSQL", "FastAPI", "Pytest", "Supabase", "JSON"],
+    tags: ["Python", "PostgreSQL", "psycopg2", "Pytest", "Playwright", "Supabase", "Next.js", "TypeScript"],
     featured: true,
     url: "https://onepercentbetter.poker",
     visibility: "private",
